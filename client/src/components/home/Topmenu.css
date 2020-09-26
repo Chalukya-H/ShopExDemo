@@ -20,9 +20,11 @@
     height: 30px;
     padding: 10px;
     border: none;
-    width: 100%; 
+    width: 90%; 
     outline: none;
-    text-align: center;
+    /* text-align: center; */
+    padding-left: 40px;
+    border-radius: 5px;
   }
 
   .header__seachIcon{
@@ -30,6 +32,7 @@
     padding: 1px;
     height: 30px !important;    
     width: 40px !important;
+    border-radius: 5px;
    }
 
   .header__seach{

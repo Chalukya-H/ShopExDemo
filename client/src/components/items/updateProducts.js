@@ -7,6 +7,7 @@ class UpdateProduct extends React.Component{
         super()
         this.state = {
             name:'',
+            shortname:'',
             description:'',
             category : '',
             subcategory :'',
@@ -28,6 +29,7 @@ class UpdateProduct extends React.Component{
                 const products =   this.props.products[0] 
                 this.setState({
                     name :products.name,
+                    shortname : products.shortname,
                     description:products.description,
                     category : products.categoryID,
                     subcategory :products.subCategoryID,
@@ -66,6 +68,7 @@ class UpdateProduct extends React.Component{
 
         const formData = {
             'name':this.state.name,
+            'shortname':this.state.shortname, 
             'description': this.state.description,
             'price':this.state.price,
             'quantity':this.state.quantity,
@@ -84,104 +87,107 @@ class UpdateProduct extends React.Component{
 
     render(){  
         return( 
-            <div className ='container-fluid ml-3'>
-                <h3> Update Product </h3>
-                <div className='row '>
-                    <div className ='col-5 border'>
-                        <form   encType="multipart/form-data" onSubmit ={this.handleSubmit} >                              
-                            <div className = 'form-group'>
-                                <label htmlFor='name' >Product Name :</label>
-                                <input type= 'text'id='name' required={true} name ='name' className ='form-control' 
-                                    placeholder ='Enter the Product name' value ={this.state.name} onChange ={this.handleChange}  />
-                            </div>
-                            {/* category list */}
-                            <div className = 'form-group'>
-                                <label htmlFor='category' >Category:</label>                                    
-                                <br/>
-                                <select className="form-control w-50" name = 'category'  id ='category' onChange ={this.handleChange}>        
-                                    <option>--Select Category--</option>                               
-                                    {
-                                        this.props.categories.map ((item,i)=>{
-                                            return(
-                                                <option key ={i+1} value ={item._id}  >{item.mainType}</option>
-                                            )
-                                        })    
-                                    }
-                                </select>                      
-                                
-                            </div>
-                           {/* Sub category list */}
-                           <div className = 'form-group'>
-                                <label htmlFor='subcategory' >Sub Category:</label>                                    
-                                <br/>
-                                <select className="form-control w-50" name ='subcategory' id='subcategory' onChange = {this.handleChange}>  
-                                    <option>--Select Sub Category--</option>                                      
-                                    {
-                                        this.props.categories.map ((item)=> {                                           
-                                            
-                                            if(item.subType.length===0 && item._id === this.state.category)
-                                            {
-                                                return (
-                                                    <option key ='1' value ={'NA'}   > Others </option>
-                                                )
-                                            }
-                                            else if(  item._id === this.state.category){
-                                                return item.subType.map((subtypes,j)=>{                                                        
-                                                    return(
-                                                        <option key ={j+1} value ={subtypes._id} 
-                                                            >{subtypes.name}</option>
-                                                    )
-                                                })
-                                            } 
-                                        })    
-                                    }
-                                </select>                    
-                                 
-                            </div>
+            <div className ='newProduct__container'>
+                <form encType="multipart/form-data" className='newProduct_Infocontainer' onSubmit ={this.handleSubmit}  >  
+                    <h3> Update Product </h3>                  
+                    <div className ='newProduct__namesContainer'>
+                        <label htmlFor='name' >Product Name :</label>
+                        <input type= 'text'id='name' required={true} name ='name' className ='newProduct__fullName' 
+                            placeholder ='Enter the Product Detailed Name' value ={this.state.name} onChange ={this.handleChange}  />
 
-                            <div className = 'form-group'>
-                                <label htmlFor='description' >Description :</label>
-                                <textarea  id='description' required={true} name ='description'
-                                     className ='form-control h-50' rows='10' placeholder ='Enter the description' value ={this.state.description}
-                                     onChange ={this.handleChange}   />
-                            </div>
-                            
-                            <label htmlFor='price' >Price :</label>                                  
-                            <div className = 'form-group input-group mb-3'>
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text fa fa-rupee" id="basic-addon1"></span>
-                                </div>
-                                
-                                <input type= 'text' id='price' required={true} name ='price' className ='form-control' 
-                                    placeholder ='Enter the Product price' value ={this.state.price} onChange ={this.handleChange}  /> 
-                            </div>
-
-                            <div className = 'form-group'>
-                                <label htmlFor='quantity' >Quantity Avilable:</label>
-                                <input type= 'text'id='quantity' required={true} name ='quantity' className ='form-control' 
-                                    placeholder ='Enter the Product quantity' value ={this.state.quantity} onChange ={this.handleChange}  />
-                            </div>
- 
-                            
-                            <div className = 'form-group'> 
-                                <input type= 'submit' id='submit' name ='submit' className ='btn btn-success w-25' 
-                                    value ='UPDATE'  />
-                            </div>
-                        </form>  
+                        <label htmlFor='shortname' >Product Short Name :</label>
+                        <input type= 'text'id='shortname' required={true} name ='shortname' className ='newProduct__shortName' 
+                            placeholder ='Enter the Product Short Name' value ={this.state.shortname} onChange ={this.handleChange}  />
                     </div>
-                        {
-                            this.state.mainImage   ? 
-                                <div className ='col-4  ml-4'>
-                                    <h5>Main Image Review</h5>
-                                    <img src = {`${window.location.origin}/${this.state.mainImage}`}  alt=''/> 
-                                    
-                                </div>
-                                :'' 
-                        }
-                        
-                </div>
 
-            </div>
+                    <div className ='newProduct__Category'>
+                        <div className ='newProduct__mainCategory'>
+                            <label htmlFor='category'> Category:</label>     
+                            <select className="form-control" name = 'category'  id ='category' onChange ={this.handleChange}>        
+                                <option>----Select Category----</option>                               
+                                {
+                                    this.props.categories.map ((item,i)=>{
+                                        return(
+                                            <option key ={i+1} value ={item._id} 
+                                            selected = {item._id === this.state.category ? true : false}  >{item.mainType}</option>
+                                        )
+                                    })    
+                                }
+                            </select> 
+
+                        </div>
+                        <div className = 'newProduct__subCategory'>
+                            <label htmlFor='subcategory' > Sub Category:</label> 
+                            <select className="form-control" name ='subcategory' id='subcategory' onChange = {this.handleChange}>  
+                                <option>----Select Sub Category-----</option>                                      
+                                {
+                                    this.props.categories.map ((item)=> {                                           
+                                        
+                                        if(item.subType.length===0 && item._id === this.state.category)
+                                        {
+                                            return (
+                                                <option key ='1' value ={'NA'}> Others </option>
+                                            )
+                                        }
+                                        else if(  item._id === this.state.category){
+                                            return item.subType.map((subtypes,j)=>{                                                        
+                                                return(
+                                                    <option key ={j+1} value ={subtypes._id} 
+                                                        selected = {this.state.subcategory === subtypes._id ?true :false}> {subtypes.name}</option>
+                                                )
+                                            })
+                                        } 
+                                    })    
+                                }
+                            </select>
+                        </div>
+                                
+                    </div>
+                
+                    <div className = 'newProduct__Desc'>
+                        <label htmlFor='description' >Description :</label>
+                        <textarea  id='description' required={true} name ='description'
+                            className ='form-control' rows='8' placeholder ='Enter the description'                                   
+                            value= {this.state.description.split('--').join('\n')}
+                            onChange ={this.handleChange}   />
+                    </div>
+                                                    
+                    <div className = 'newProduct__price'>
+                        <div className = 'newProduct__priceinfo'>
+                            <label htmlFor='price' >Price :</label> 
+                            <div className="input-group-prepend">
+                                <span className="input-group-text fa fa-rupee" id="basic-addon"></span>
+                                <input type= 'text' id='price' required={true} name ='price' className ='newProduct__priceText' 
+                                    placeholder ='Enter the Product price' value ={this.state.price} onChange ={this.handleChange}  /> 
+                            </div>   
+                        </div>
+                        <div className = 'newProduct__quantity'>
+                            <label htmlFor='quantity' >Quantity :</label>
+                            <input type= 'text' id='quantity' required={true} name ='quantity' className ='form-control' 
+                                placeholder ='Enter quantity' value ={this.state.quantity} onChange ={this.handleChange}  />  
+                        </div>
+                    </div>
+ 
+
+                    <div className = 'newProduct__Submit'> 
+                        <input type= 'submit' className ='addNewProduct' value = 'UPDATE PRODUCT' />  
+                    </div>
+                </form>
+            
+                <div className = 'newProduct_ReviewContainer'>
+                    <div>
+                    {
+                        this.state.mainImage   ? 
+                            <div>   
+                                <h6> Main Image </h6>                              
+                                <img src = { require(`../../upload/${this.state.mainImage}`) } alt='' className = 'newProduct_Review-Image'/> 
+                            </div>
+                        :'' 
+                    }
+                    </div>
+                </div>
+            </div>  
+   
         )
     }
 }

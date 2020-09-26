@@ -102,7 +102,7 @@ class Cart extends React.Component {
                                     <div className="cart__card"  key ={i+1}> 
                                         <div className ='cart__image'>                                        
                                             <img src={require(`../../upload/${cart.image}`)} className="cart__card-img" 
-                                                alt="No Image" />                                        
+                                                alt="No Pic Found" />                                        
                                        </div> 
                                        <div className ='cart__info'>
                                            <h4>{cart.name} </h4>                                            

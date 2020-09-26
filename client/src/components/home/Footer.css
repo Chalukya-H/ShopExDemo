@@ -1,25 +1,30 @@
-.page-footer{    
-    position: static;
-    left: 0;
-    bottom: 0px;    
-    width: 100%;         
-    color: white;       
-    
+.footer__container{        
+    display: flex;        
+    /* width: max-content;          */
+    color: white;  
+    background: black;
+    margin: 0px; 
+    margin-top: 30px;  
+    padding: 10px;
+    padding-left: 40px;
   }
   
   .footer__appname{
     font-size: 25px;
     text-decoration: none;
     outline: none;
+    color: orange; 
   }
 
   .footer__appname:hover {      
     text-decoration: none;
     outline: none; 
+    color: orange;
   }
 
+  
   .footer__socialMedia{
-    display: flex;    
+    display: flex;        
   }
 
   .footer__mail , .footer__git , .footer__linkedIn{
@@ -35,5 +40,15 @@
   }
 
   .footer__links{
-     width: 900px;
+       margin-left: auto;
+       margin-right: auto;
+      width: max-content;
+       padding: 20px;
+       padding-left: 190px;
+  }
+
+  .footer__desc{
+    font-size: 14px;
+    margin-top: 10px;
+    /* width: 600px; */
   }

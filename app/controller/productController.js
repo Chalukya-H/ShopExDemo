@@ -125,7 +125,8 @@ productController.filterByName =(req,res) =>{
 productController.update = (req,res) =>{
     const body  = req.body 
     const id =  req.params.id   
-    // console.log(body,id) 
+    const des = body.description.split('\n').join('--')
+    body.description = des
     Product.findByIdAndUpdate({_id: id},body,{ new: true, runValidators: true })
     .then(product =>{
         // console.log(product)
