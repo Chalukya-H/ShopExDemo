@@ -4,12 +4,11 @@ import VanillaTilt from 'vanilla-tilt'
 import './SingleProductCard.css' 
 
 function SingleProductCard (props){
-    const vanillaTilt =  VanillaTilt.init( document.querySelectorAll(".product_box"), {
+
+      VanillaTilt =  VanillaTilt.init( document.querySelectorAll(".product_box"), {
           max: 25,
-          speed: 500
-        }); 
- 
-   
+          speed: 200
+        });  
     
     return(
         <div className ='product_container' >
@@ -28,7 +27,7 @@ function SingleProductCard (props){
                         Login to order the product</Link>    
             }               
                 <div className = 'circle'></div>               
-                <img src = {require(`../../upload/${props.image}`)}  className ='singleproduct__image' /> 
+                <img src = {require(`../../upload/${props.image}`)} alt ='Pic not found' className ='singleproduct__image' /> 
             </div> 
 
         </div>

@@ -69,10 +69,7 @@ class AddProduct extends React.Component{
             return this.props.history.push('/products/list')  
            
         }
-        const refresh =() =>{
-            return window.location.reload()
-        }
-
+        
         this.props.dispatch(addProduct(formData,redirect))
       
     }
@@ -128,6 +125,7 @@ class AddProduct extends React.Component{
                                                 )
                                             })
                                         } 
+                                        return ''
                                     })    
                                 }
                             </select>

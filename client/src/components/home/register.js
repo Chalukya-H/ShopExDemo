@@ -62,7 +62,7 @@ class Register extends React.Component {
                     <input type="email" placeholder="Email"  className ='register__email' id='email' required={true} name ='email'
                         value ={this.state.email} onChange ={this.handleChange} />
 
-                    <input type="password" placeholder="Password" className ='register__password' id='password' required={true} name ='password'
+                    <input type="password" placeholder="Password" className ='register__password' id='register_password' required={true} name ='password'
                         value ={this.state.password} onChange ={this.handleChange}  />
 
                     <input type="password" placeholder="Confirm Password"  className ='register__Cpassword' id='confirmPwd' required={true} name ='confirmPwd'

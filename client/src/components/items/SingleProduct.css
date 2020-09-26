@@ -32,6 +32,7 @@
 .container-fluid{
     margin: 10px;
     display: flex; 
+    width: 100%;
 }
 
 .product__image{

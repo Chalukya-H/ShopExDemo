@@ -102,8 +102,8 @@ class OrderCreate extends React.Component {
         return (           
             <div className ='preOrder__container'>
                 <h4  hidden = { this.state.readyToOrder && this.props.cartData.length ? false : true}  > Confirm Your Order! 
-                    <a href= '#' className="text-monospace text-decoration-none order__edit" onClick ={this.handleInfoEdit} 
-                       hidden = { this.state.readyToOrder && this.props.cartData.length ? false : true} >Edit</a>
+                    <button className="text-monospace text-decoration-none order__edit" onClick ={this.handleInfoEdit} 
+                       hidden = { this.state.readyToOrder && this.props.cartData.length ? false : true} >Edit</button>
                  </h4> 
                
                 <div className ='product__deliveryAddress'  

@@ -1,7 +1,6 @@
 import React from 'react'
 import {getOrdersDetails} from '../../actions/orderAction'
-import { connect } from 'react-redux'
-import NumberFormat from 'react-number-format' 
+import { connect } from 'react-redux' 
 import './OrderShow.css'
 
 class OrdersDisplay extends React.Component{

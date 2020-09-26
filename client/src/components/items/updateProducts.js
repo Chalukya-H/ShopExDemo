@@ -137,6 +137,7 @@ class UpdateProduct extends React.Component{
                                                 )
                                             })
                                         } 
+                                        return ''
                                     })    
                                 }
                             </select>
