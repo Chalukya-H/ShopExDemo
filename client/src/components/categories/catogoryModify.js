@@ -37,9 +37,9 @@ class CategoryModify extends React.Component {
     }
     render(){
         return(
-            <div className ='container mt-4'> Update existing category 
-                <br/>
-                 <label htmlFor='mainId' className ='mt-3' >Category:</label> 
+            <div className ='category__Modifycontainer'>
+                 <h4> Update Existing Category </h4>
+                 <label htmlFor='mainId' >Category:</label> 
                 <div className = 'row'> 
                     <div className ='col-md-6 mb-1'> 
                         <select className="form-control" name = 'mainId'  id ='mainId' onChange ={this.handleChange}>        
@@ -65,7 +65,7 @@ class CategoryModify extends React.Component {
                 <div className ='row mt-4'>
                     <div className ='col-md-4'>                    
                     <button type="button" className="btn btn-primary w-50" onClick={this.handleSubmit}>
-                        Add
+                        Update
                         </button> 
                     </div>
                 </div>

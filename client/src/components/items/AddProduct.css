@@ -1,0 +1,128 @@
+.newProduct__container
+{
+    max-width: 90%;
+    margin: 40px;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px; 
+    display: flex; 
+    /* flex-direction: column; */
+    background: whitesmoke;
+    /* padding-left: 120px;  */
+    box-shadow: 10px 10px 30px 5px black;
+}
+
+.newProduct_Infocontainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%; 
+}
+
+.newProduct__namesContainer
+{
+    display: flex;
+    flex-direction: column;     
+}
+
+.newProduct__fullName ,.newProduct__shortName{
+    width: 50%; 
+    height: 40px;
+    outline: none; 
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding-left: 20px;
+}
+
+.newProduct__Category{
+    display: flex;     
+    margin: 3px;    
+}
+
+.newProduct__subCategory{
+    padding-left: 20px;
+    width: fit-content;
+}
+
+.newProduct__mainCategory{
+    padding-left: 20px;
+    width: fit-content;
+}
+
+.newProduct__Desc{
+    width: 50%; 
+    outline: none;
+    margin-top: 10px;
+}
+
+.newProduct__price{
+    display: flex;     
+    margin: 10px;  
+    /* flex-direction: column; */
+}
+
+.newProduct__priceText{
+    outline: none;
+}
+
+.rupeeicon{
+    background: lightgray;
+    padding: 5.5px;
+    border: 1px solid black;
+    margin-left: 10px;
+}
+
+.newProduct__priceinfo {
+    width: 300px;
+}
+.newProduct__quantity{
+    width: 200px;
+}
+
+.Newproduct_Image{
+    display: none;
+}
+
+.Newproduct_Imagelabel{
+    background: orange;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 30px;
+    width: 25%;
+    font-weight: 500;    
+    text-align: center;
+
+}
+
+.addNewProduct{
+    width: 200px;
+    margin: 20px;
+    padding: 6px;
+    border-radius: 30px;
+    background: lightgreen;
+    font-weight: 600;
+}
+
+.ImageWarning{
+    color: red;
+}
+
+.newProduct_Review-Image{
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.newProduct_ReviewContainer{
+    width: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 10px;
+    /* margin: 10px; */
+}
+
+.newProduct_Review-CartImage{
+    width: 100px;
+    height: 150px; 
+}

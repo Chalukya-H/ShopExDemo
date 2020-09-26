@@ -29,7 +29,7 @@ categoryController.list =(req,res) =>{
 
     Category.find()
     .then( category =>{
-        // console.log(category)
+        
         res.json(category.reverse())
     })
 

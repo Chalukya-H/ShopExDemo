@@ -1,0 +1,64 @@
+.preOrder__container{
+    width: 90%;      
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 10px 30px 5px black;
+    padding: 30px;
+    background-color: white;
+}
+
+.product__deliveryAddress{
+    display: flex;
+    margin-top: 10px;
+    width: 60%;
+    
+}
+
+.product__deliveryCellNum{
+    display: flex;
+    margin-top: 2px;
+    width: 70%;
+}
+.product__address {
+    margin-right: 10px;
+    width: fit-content;
+}
+
+.order__adressContainer{
+    width: 80%;      
+    display: flex; 
+    flex-direction: column;
+
+}
+
+.order__edit{
+    border: 1px solid transparent;
+    width: 90px !important;
+    height: 20px;
+    text-align: center;
+    margin-top: 10px;
+    color: black;
+    margin-left: 10px;
+    font-size: 16px !important;   
+    background-color: orange;
+    border-radius: 40px;
+    cursor: pointer;  
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.order__priceInfo{
+    display: flex;
+    margin: 10px;
+}
+
+.order__price{
+    margin-right: 20px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

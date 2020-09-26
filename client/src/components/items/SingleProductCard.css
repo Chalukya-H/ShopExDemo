@@ -1,0 +1,159 @@
+.product_container{
+    position: relative;
+    display: flex; 
+    align-items: center;
+    flex-wrap: wrap;
+    width: 600px;
+    margin-left: 50px;
+    transform-style: preserve-3d;    
+}
+
+.product_box{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    margin: 40px;    
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    background: lightblue;
+}
+
+.product_box:hover{     
+    background-color: lightgrey;
+}
+
+.product_box::before{
+    content: 'SHOPEX' ;  
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    font-weight: 700;
+    font-size: 3em;
+    color: grey;
+    font-style: italic;
+    opacity: 0;
+    transition: 0.5s;
+}
+ 
+
+.product_box:hover::after , .product_box:hover::before{
+    opacity: 0.3;
+    
+}
+
+.product__name{
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    transform-style: preserve-3d;
+    transform: translate3d(0,0,75px);
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 0;
+}
+ 
+.product_box:hover .product__name{
+    top: 40px;
+    opacity: 1  ;
+}
+
+.product__addCart{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 70%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%,0,75px);
+    color: black;
+    font-weight: 300;
+    border-radius: 30px;
+    background:orange;
+    padding: 10px 25px;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 10;
+    text-decoration: none;
+    outline: none;
+
+}
+
+.product_box:hover .product__addCart{
+   bottom: 20px;
+    opacity: 1  ;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    font-weight: 500;
+}
+
+.circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: 0.5s;
+    background: black;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%,-50%,50px);
+    z-index: 10;
+    opacity: 0;
+}
+
+.singleproduct__image{
+    position: absolute;    
+    top: 50%;
+    left: 50%;
+    max-width: 300px;
+    max-height: 65%;
+    transition: 0.5s;
+    z-index: 11;    
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%,-50%, 50px) rotate(-14deg);
+}
+
+
+.product_box:hover .singleproduct__image{
+    transform: translate3d(-50%,-50%, 80px) rotate(-14deg);
+ }
+
+.product__LoginToAdd{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 70%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%,0,75px);
+    color: black;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 30px;
+    background:orange;
+    padding: 10px 25px;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 11;
+    text-decoration: none;
+    outline: none;
+}
+
+
+
+.product_box:hover .product__LoginToAdd{
+     bottom: 20px;
+     opacity: 1  ;
+     text-decoration: none;
+     outline: none;
+     color: black;
+     font-weight: 500;
+      
+ }

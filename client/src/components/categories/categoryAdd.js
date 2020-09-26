@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux' 
 import {addCategories} from '../../actions/categoryAction'
+import './AddCategory.css'
 
 class CategoryAdd extends React.Component {
     constructor (){
@@ -28,7 +29,8 @@ class CategoryAdd extends React.Component {
     }
     render(){
         return(
-            <div className ='container mt-3'> Add new Category 
+            <div className ='category__Addcontainer'> 
+                <h4> Add New Category  </h4>
                 <div className ='row mt-2'>                                     
                     <div className ='col-md-6 mb-1'> Category :           
                         <input type="text"   className="form-control" placeholder ='like.. Electronics ,Books , Home Appliances'
@@ -48,10 +50,7 @@ class CategoryAdd extends React.Component {
                         Add
                         </button> 
                     </div>
-                </div>
-
-
-                
+                </div> 
             </div>
         )
     }

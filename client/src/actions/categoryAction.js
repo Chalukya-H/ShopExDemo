@@ -3,15 +3,16 @@ import axios from 'axios'
  export const redirect = (path) =>{
     return window.location.href = path            
 }
+const URL = "http://localhost:3030"
 
 export const setCategoryInfo = (category) =>{
     return {type: 'SET_CATEGORY' ,  payload:category}
 }
 export const getCategories =()=>{
     return(dispatch) => {
-        axios.get('/categories')
+        axios.get(`${URL}/categories`)
 
-         .then(response => {            
+         .then(response => {        
              dispatch( setCategoryInfo(response.data) )
              
          })
@@ -28,7 +29,7 @@ export const updateCategoryInfo = (category) =>{
 export const addCategories = (formdata,path)=>{
     return(dispatch) => {
          
-        axios.post('/categories', formdata)
+        axios.post(`${URL}/categories`, formdata)
          .then(response => {  
              dispatch( updateCategoryInfo(response.data) )
               redirect(path)
@@ -48,7 +49,7 @@ export const editCategoryInfo = (category) =>{
 export const updateCategories = (formdata,path)=>{
     return(dispatch) => {
          
-        axios.put('/categories/update', formdata)
+        axios.put(`${URL}/categories/update`, formdata)
          .then(response => {  
              dispatch( editCategoryInfo(response.data) )
               redirect(path)

@@ -25,7 +25,7 @@ router.post('/orders',authUser, orderController.create)
 router.get('/orders/list',authUser, orderController.listforCustomer)
 
 //Product Router
-router.get('/products',authUser,productController.list)
+router.get('/products',productController.list)
 router.post('/products/topnew',productController.topList)
 router.post('/products',upload.any('filename'),productController.create)
 router.put('/products/quantity/update',productController.updateQuantity)

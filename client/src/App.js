@@ -1,10 +1,9 @@
 import React from 'react';
-import {BrowserRouter, Switch,Route} from 'react-router-dom'
+import {BrowserRouter, Switch,Route, Redirect} from 'react-router-dom'
 import './App.css';
 import TopMenu from './components/home/topMenu'
-import Login from './components/home/login'
-import Register from './components/home/register'
-import AllItemsShow from './components/items/itemsShow'
+import Login from './components/home/login' 
+import ProductBanner from './components/items/ProductBanner'
 import CustomerInfo from './components/customer/customerAccount'
 import Cart from './components/cart/carview'
 import OrderSummary from './components/orders/orderSummary'
@@ -18,38 +17,120 @@ import ProductSeachbyName from './components/items/productsBySearch'
 import UpdateProduct from './components/items/updateProducts'
 import OrderCreate from './components/orders/orderCreate'
 import OrdersDisplay from './components/orders/orderShow'
+import Footer from './components/home/footer' 
 
 function App() {
   return (
     <BrowserRouter>
-       <div> 
-          <TopMenu/> 
-        </div>
-         
+      
       <Switch>
-          <Route path ='/' component = {AllItemsShow} exact ={true} />
-          <Route path ='/ShopEx' component = {AllItemsShow} exact ={true} />
-          <Route path ='/login' component = {Login} exact ={true}/>
-          <Route path ='/register' component ={Register} exact ={true}/>
-          <Route path ='/account' component ={CustomerInfo} exact ={true}/>
-          <Route path ='/cart' component ={Cart} exact ={true}/>
+          <Route path ='/'  exact = {true} >   
+            <TopMenu/> 
+            <ProductBanner/> 
+            <Footer/>
+          </Route>
 
-          <Route path ='/orders' component ={OrderSummary} exact ={true}/>
-          <Route path ='/orders/add' component ={OrderCreate} exact ={true}/>
-          <Route path ='/orders/summary' component ={OrdersDisplay} exact ={true}/>
+          <Route path ='/ShopEx'  exact ={true} >   
+            <TopMenu/> 
+            <ProductBanner/> 
+            <Footer/>
+          </Route>
+         
+          <Route path ='/login'   exact ={true} >
+            {localStorage.getItem('token')  ? <Redirect to ='/' /> : <Login/> }
+            <Footer/>
+          </Route>
+ 
+          <Route path ='/account' exact ={true}>
+              <TopMenu/> 
+              <CustomerInfo/>
+              <Footer/>
+          </Route>
+
+          <Route path ='/cart' exact ={true}>
+            <TopMenu/> 
+            <Cart/>
+            <Footer/>
+          </Route>
+ 
+          <Route path ='/orders' component ={OrderSummary} exact ={true}>
+              <TopMenu/> 
+              <OrderSummary/>
+              <Footer/>
+          </Route>
+
+          <Route path ='/orders/add'  exact ={true} >
+              <TopMenu/> 
+              <OrderCreate/>
+              <Footer/>
+          </Route>
+
+          <Route path ='/orders/summary'  exact ={true} >
+              <TopMenu/> 
+              <OrdersDisplay/>
+              <Footer/>
+          </Route>
 
 
-          <Route path ='/categories/list' component ={CategoriesSummary} exact ={true}/>
-          <Route path ='/categories/update' component ={CategoryUpdate} exact ={true}/>
+          <Route path ='/categories/list'  exact ={true}>
+              <TopMenu/>
+              <CategoriesSummary/>
+              <Footer/>
+          </Route>
 
-          <Route path ='/products/list' component ={ProductsSummary} exact ={true} />
-          <Route path ='/products/add' component ={AddProduct} exact ={true} />  
-          <Route path ='/search/:text' component ={ProductSeachbyName} exact ={true}/>        
-          <Route path ='/products/query/:id' component ={ProductShowByCategory} exact ={true}/>  
-          <Route path ='/products/update/:id' component ={UpdateProduct} exact ={true}/>        
-          <Route path ='/products/:id' component ={ShowSingleProduct} exact ={true}/>
-          
-          
+          <Route path ='/categories/update' exact ={true}>
+              <TopMenu/>
+              <CategoryUpdate/>
+              <Footer/>
+          </Route>
+
+          <Route path ='/products/list' exact ={true} >
+              <TopMenu/>
+              <ProductsSummary/>
+              <Footer/>
+          </Route>
+
+          <Route path ='/products/add' exact ={true} > 
+              <TopMenu/>
+              <AddProduct/>
+              <Footer/>
+          </Route>
+
+          <Route path ='/search/:text'  exact ={true} render = { (props) => 
+                <div>
+                    <TopMenu />
+                    <ProductSeachbyName {...props} />
+                    <Footer/>
+                </div> 
+              } 
+          />                 
+               
+          <Route path ='/products/query/:id' exact ={true} render = { (props) => 
+                <div>
+                    <TopMenu />
+                    <ProductShowByCategory {...props} />
+                    <Footer/>
+                </div> 
+              }           
+          />  
+
+          <Route path ='/products/update/:id'  exact ={true} render = { (props) => 
+                <div>
+                    <TopMenu />
+                    <UpdateProduct {...props} />
+                    <Footer/>
+                </div> 
+              }          
+          />      
+
+          <Route path ='/products/:id'  render = { (props) => 
+                <div>
+                    <TopMenu />
+                    <ShowSingleProduct {...props} />
+                    <Footer/>
+                </div> 
+              } 
+          /> 
       </Switch>
       
     </BrowserRouter>

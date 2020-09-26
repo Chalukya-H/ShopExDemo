@@ -2,67 +2,60 @@ import React from 'react'
 import {getOrdersDetails} from '../../actions/orderAction'
 import { connect } from 'react-redux'
 import NumberFormat from 'react-number-format' 
+import './OrderShow.css'
 
 class OrdersDisplay extends React.Component{
     constructor(){
         super()
-        this.state={             
-            path : window.location.origin 
+        this.state={       
+            date : new Date()
         }
     }
     componentDidMount =()=>{
-        this.props.dispatch(getOrdersDetails()) 
-        const refersh =  setInterval( () =>{  
-            if(this.props.orders.length ) {             
-                clearInterval(refersh)   
-            }
-        } , 1000)
+        this.props.dispatch(getOrdersDetails())         
     }
+
+    handleExpand (i) {
+        const order_container = document.getElementsByClassName('order_summary__containerbox'); 
+        order_container[i].classList.toggle('active') //Add 'active' to class name
+    }
+
     render(){
+         
         return(
-            <div className ='container-fluid m-3 '>
-                 <h4 style ={{ visibility : this.props.orders.length ? 'visible' : 'hidden'}}  > My Orders</h4> 
+            <div className = 'order_summary__container'>
+                <div hidden = {this.props.orders.length ? false : true}>
+                    <h2>Your Orders !</h2>
+                </div>
                 {
-                   this.props.orders.length ? 
-                   <div className="row justify-content-between">                        
-                        <div className="col-6"> 
-                        {
-                            this.props.orders.map( (order,i) =>{
-                                return (
-                                    <div className="card"  key ={i+1}>
-                                        <div className="row no-gutters">
-                                            <div className="col-md-1 mt-3">
-                                                <img src={`${this.state.path}/${order.image}`} className="card-img" alt="No Image" /> 
-                                            </div>
-                                            
-                                            <div className="col-md-10">
-                                                <div className="card-body">
-                                                    <div className='row'>
-                                                        <div className ='col'>  
-                                                            <h6 className="card-title">{order.name}</h6>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <h6 className="card-text text-left mt-1">
-                                                            <NumberFormat thousandSeparator={true} thousandsGroupStyle="lakh" 
-                                                                className="card-title text-left"
-                                                                displayType = 'text' prefix={'₹'} value={order.price }/>
-                                                            &nbsp;&nbsp;&nbsp;Qty :  {order.quantity}  
-                                                        </h6> 
-                                                        <label> Ordered : {order.orderAt.split('T')[0]}</label>
-                                                    </div> 
-                                                </div>                                                 
-                                            </div>
-                                        </div>
+                    this.props.orders.length ?
+                        this.props.orders.map( (order,i) =>{
+                            return (
+                                <div className ='order_summary__containerbox' key ={i+1} onClick ={ () =>{ this.handleExpand(i) } }>                                    
+                                    <div className = 'order_summary__label'>
+                                         {order.name} 
                                     </div>
-                                )
-                            })
-                            
-                        } 
-                        </div>
+                                    <div className ='order_summary__content'>
+                                         
+                                        <img src={require(`../../upload/${order.image}`)} className="order_card-img" 
+                                                alt="Pic Not found" /> 
+                                        <div className ='order_summary__Info'>
+                                            <h6> Price : {order.price * order.quantity}  </h6>
+                                            <h6> Quantity : {order.quantity}   </h6>  
+                                            <h6> Address : {order.address} </h6>
+                                            <h6> Contact : {order.contactNum} </h6>
+                                            <h6> Delivery Date :  { order.deliveredAt.substr(0,10) } </h6>
+                                        </div>  
+                                    </div>
+                                 </div>    
+                            )
+                        })
+                    :
+                    <div className="order__emptyContainer">                        
+                        <h3> No Orders Found !! </h3>
                     </div>
-                    :''
                 }
+ 
             </div>
         )
     }

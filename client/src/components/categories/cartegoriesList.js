@@ -2,25 +2,20 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getCategories} from '../../actions/categoryAction'
+import './CategoryList.css'
 
 class CategoriesSummary extends React.Component {
 
     componentDidMount = ()=>{
         this.props.dispatch(getCategories()) 
-
-        const refersh =  setInterval( () =>{ 
-            if(this.props.categories.length ) {             
-                clearInterval(refersh)             
-            }
-        },1000)
     }
 
     render() {
         return(
-            <div className ='container'>
+            <div className ='category__container'>
                 
-                <div className="row justify-content-between">
-                    <div className="col-4">
+                <div className="row justify-content-Start ml-2">
+                    <div className="col-3 mt-3">
                         <h3> Categories Summary </h3>
                     </div>
                     <div className="col-4">
@@ -32,11 +27,11 @@ class CategoriesSummary extends React.Component {
                 <table className="table table-striped table-dark table-bordered ">
                     <caption className ='align-text-top'>List of {this.props.categories.length} Categories</caption>
                     <thead className ='bg-success'>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Category ID</th>
-                            <th scope="col">Category Name</th>
-                            <th scope="col">Sub Categories</th> 
+                        <tr >
+                            <th scope="col" >Sl.no</th>
+                            <th scope="col" >Category ID</th>
+                            <th scope="col" >Category Name</th>
+                            <th scope="col" >Sub Categories</th> 
                         </tr>
                     </thead>
                     <tbody>

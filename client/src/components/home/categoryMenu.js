@@ -21,10 +21,10 @@ class CategoryMenu extends React.Component {
                                                 this.props.categories.map((category,i) =>{
                                                 return (                                      
                                                     <li className=" nav-item dropdown" key ={i+1}>   
-                                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
-                                                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style ={{color:'black'}}>
+                                                        <button className="nav-link dropdown-toggle"   id="navbarDropdown" 
+                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style ={{color:'black'}}>
                                                                 {category.mainType}
-                                                        </a> 
+                                                        </button> 
 
                                                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                 {

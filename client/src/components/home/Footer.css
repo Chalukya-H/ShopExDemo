@@ -1,0 +1,39 @@
+.page-footer{    
+    position: static;
+    left: 0;
+    bottom: 0px;    
+    width: 100%;         
+    color: white;       
+    
+  }
+  
+  .footer__appname{
+    font-size: 25px;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .footer__appname:hover {      
+    text-decoration: none;
+    outline: none; 
+  }
+
+  .footer__socialMedia{
+    display: flex;    
+  }
+
+  .footer__mail , .footer__git , .footer__linkedIn{
+      margin: 10px;
+      font-size: 30px !important; 
+
+  }
+
+  .footer__mail:hover  ,  .footer__git:hover , .footer__linkedIn:hover {
+      background-color: red !important;
+      border-radius: 50px;
+      padding: 3px;
+  }
+
+  .footer__links{
+     width: 900px;
+  }

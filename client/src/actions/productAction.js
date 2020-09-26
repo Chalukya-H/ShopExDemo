@@ -1,4 +1,5 @@
 import axios from 'axios'
+const URL = 'http://localhost:3030'
 
 export const redirect = (path) =>{
     return window.location.href = path            
@@ -11,7 +12,7 @@ export const addProductinfo= (product) => {
 export const addProduct = (productInfo,redirect)=>{
  
     return(dispatch) =>{
-        axios.post('/products',productInfo,{
+        axios.post(`${URL}/products`,productInfo,{
             headers : { 
                 'Content-Type' :'multipart/form-data'
             }
@@ -34,14 +35,14 @@ export const getProductinfo= (product) => {
 export const getProducts = ()=>{ 
     return(dispatch) =>{
         
-        axios.get('/products',{
+        axios.get(`${URL}/products`,{
             headers : { 
                 'Content-Type' :'multipart/form-data',
                 'auth' : localStorage.getItem('token') 
             }
         })
-        .then(response =>{             
-            dispatch(getProductinfo(response.data))
+        .then(response =>{  
+            dispatch(getProductinfo(response.data   ))
         })
         .catch( err =>{
             console.log(err)
@@ -53,7 +54,7 @@ export const getProducts = ()=>{
 export const getTopProducts = ()=>{
     
         return(dispatch) =>{
-            axios.post('/products/topnew')
+            axios.post(`${URL}/products/topnew`)
             .then(response =>{
                  
                 dispatch(addProductinfo(response.data))
@@ -68,16 +69,18 @@ export const getTopProducts = ()=>{
 
 export const getProductsbyCategory = (id)=>{    
     return(dispatch) =>{
-        axios.get(`/products/query/${id}`, {
+        axios.get(`${URL}/products/query/${id}`, {
             headers : { 
                 'Content-Type' :'multipart/form-data'
             }
         })
-        .then(response =>{                
+        .then(response =>{ 
+                    
             dispatch(addProductinfo(response.data))
             
         })
         .catch( err =>{
+              
             console.log(err)
         })
     }
@@ -86,7 +89,7 @@ export const getProductsbyCategory = (id)=>{
     
 export const getProductsbyID = (id)=>{    
     return(dispatch) =>{
-        axios.get(`/products/${id}`, {
+        axios.get(`${URL}/products/${id}`, {
             headers : { 
                 'Content-Type' :'multipart/form-data'
             }
@@ -105,7 +108,7 @@ export const getProductsbyID = (id)=>{
 export const getProductsbyQuery = (searchText)=>{ 
     return(dispatch) =>{
          
-        axios.get(`/products/search/${ searchText}`,{ 
+        axios.get(`${URL}/products/search/${ searchText}`,{ 
             headers : { 
                 'Content-Type' :'multipart/form-data'
             }
@@ -128,7 +131,7 @@ export const updateProductinfo= (product) => {
 
 export const updateProduct = (formData, id , redirect) =>{
     return(dispatch) =>{ 
-        axios.put(`/products/update/${id}`,formData )
+        axios.put(`${URL}/products/update/${id}`,formData )
         .then(response =>{  
             dispatch(updateProductinfo(response.data))
             redirect()

@@ -3,24 +3,20 @@ import {connect} from 'react-redux'
 import {getProducts} from '../../actions/productAction'
 import {getCategories} from '../../actions/categoryAction'
 import { Link } from 'react-router-dom'
+import './ProductList.css'
 
 class ProductsSummary extends React.Component {
 
     componentDidMount = ()=>{
         this.props.dispatch(getProducts()) 
-        this.props.dispatch(getCategories())
-
-        const refersh =  setInterval( () =>{  
-            if(this.props.products.length && this.props.categories.length ) {             
-                clearInterval(refersh)             }
-        },1000)
+        this.props.dispatch(getCategories()) 
     }
 
     render() {
         return(
-            <div className ='container-fluid'>
-                <div className="row justify-content-between">
-                    <div className="col-4">
+            <div className ='productList__container'>
+                <div className="row justify-content-start">
+                    <div className="col-3">
                         <h3> Products Summary </h3>
                     </div>
                     <div className="col-4">
@@ -33,7 +29,7 @@ class ProductsSummary extends React.Component {
                     <caption className ='align-text-top'>List of {this.props.products.length} products</caption>
                     <thead className ='bg-success'>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">Sl.no</th>
                             <th scope="col">Product ID</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Price</th>

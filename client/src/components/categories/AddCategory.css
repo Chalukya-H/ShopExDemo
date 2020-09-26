@@ -1,0 +1,23 @@
+.category__Addcontainer{
+    margin: 10px;
+    padding: 10px;
+}
+
+.category__Updatecontainer{
+    max-width: 1000px;
+    margin: 40px;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px; 
+    display: flex; 
+    flex-direction: column;
+    padding-left: 120px; 
+    box-shadow: 10px 10px 30px 5px black;
+    background: lightgrey;
+}
+
+.category__Modifycontainer{
+    margin: 10px;
+    padding: 10px;
+}

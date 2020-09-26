@@ -1,10 +1,12 @@
 import React from 'react'
 import {startGetUser,EditUserInfo} from '../../actions/userAction'
 import {connect} from 'react-redux'
+import EditIcon from '@material-ui/icons/Edit';
+import  './CustomerAccount.css'
 
 class CustomerInfo extends React.Component {
     constructor(){
-        super()
+        super();
         this.state = {
             firstName:'',
             lastName:'',
@@ -64,72 +66,81 @@ class CustomerInfo extends React.Component {
     }
 
     render(){
-          
+         
         return(
-            <div className = 'container bg-light'>
+            <div className = 'customer__Infocontainer bg-light'>
                 <div className ='row'>
                   <h2 className ='mb-4'> Personal Information </h2>
-                  <a href= '#' className=" ml-3  text-monospace text-decoration-none" onClick ={this.handleInfoEdit} 
-                    style ={{fontSize:'lg'}}>Edit</a> 
+                  <EditIcon className=" ml-3 account__edit" onClick ={this.handleInfoEdit} 
+                    style ={{fontSize:'lg'}} /> 
                 </div>
 
                 <div className ='row'>                                     
-                    <div className ='col-md-4'> First Name                 
-                        <input type="text" aria-label="First name" className="form-control" disabled ={this.state.infoEdit} 
+                    <div className ='col-md-4'> 
+                        <h6 className ='mt-3'>First Name  </h6>                     
+                        <input type="text" aria-label="First name" className="form-control"  disabled ={this.state.infoEdit} 
                             name ='firstName'  value = {this.state.firstName} onChange ={this.handleChange} />  
                     </div>
-                    <div className ='col-md-4'>  Last Name                     
+                    <div className ='col-md-4'>  <h6 className ='mt-3'>Last Name  </h6>                   
                         <input type="text" aria-label="Last name" className="form-control" disabled ={this.state.infoEdit}
                            name ='lastName'  value = {this.state.lastName} onChange ={this.handleChange}  />  
                     </div>
                 </div>
 
-                <h6 className ='mt-3'>Your Gender</h6>
-                <div className ='row ml-2'>                    
-                    <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="gender" 
-                            id="Male" value="Male" disabled ={this.state.infoEdit} onChange ={this.handleChange}
-                            checked = {this.state.gender ==='Male' ? true : false} />
-                        <label className="form-check-label" htmlFor="Male">Male</label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input className="form-check-input" type="radio" name="gender" 
-                            id="Female" value="Female" disabled ={this.state.infoEdit} onChange ={this.handleChange} 
-                            checked = {this.state.gender ==='Female' ? true : false} />
-                        <label className="form-check-label" htmlFor="Female">Female</label>
-                    </div>
-                </div>
-
-                <h6 className ='mt-5'>Email Address</h6>
-                <div className ='row'>
-                    <div className ='col-md-4'>                    
-                            <input type="email" aria-label="Email" className="form-control"  disabled ={this.state.infoEdit}
-                                name= 'email' value = {this.state.email} onChange ={this.handleChange} />  
+                
+                <div className ='row ml-2'>               
+                    <div className = 'col-md-6'>
+                        <h6 className ='mt-3'>Your Gender</h6>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="gender" 
+                                id="Male" value="Male" disabled ={this.state.infoEdit} onChange ={this.handleChange}
+                                checked = {this.state.gender ==='Male' ? true : false} />
+                            <label className="form-check-label" htmlFor="Male">Male</label>
                         </div>
+                        <div className="form-check form-check-inline">
+                            <input className="form-check-input" type="radio" name="gender" 
+                                id="Female" value="Female" disabled ={this.state.infoEdit} onChange ={this.handleChange} 
+                                checked = {this.state.gender ==='Female' ? true : false} />
+                            <label className="form-check-label" htmlFor="Female">Female</label>
+                        </div>
+                    </div>                    
+                    
+                    
                 </div>
 
-                <h6 className ='mt-4'>Mail Address</h6>
+               
                 <div className ='row'>
-                    <div className ='col-md-4'>                    
-                            <textarea type="text" aria-label="Address" className="form-control" disabled ={this.state.infoEdit}
-                              name= 'address' value = {this.state.address} onChange ={this.handleChange} />  
+                    <div className ='col-md-4'>  
+                        <h6 className ='mt-4'>Email Address</h6>                  
+                        <input type="email" aria-label="Email" className="form-control"  disabled ={this.state.infoEdit}
+                            name= 'email' value = {this.state.email} onChange ={this.handleChange} />  
                     </div>
+
+                    <div className ='col-md-4'> 
+                        <h6 className ='mt-4'>Mobile Number</h6>                   
+                        <div className="input-group mb-3">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" id="basic-addon1">+91</span>
+                            </div>
+                            <input type="text" className="form-control" placeholder="Mobile Number" disabled ={this.state.infoEdit}
+                                name= 'mobile' value = {this.state.mobile} onChange ={this.handleChange} />
+                        </div>
+                    </div>
+                        
                 </div>
 
-                <h6 className ='mt-4'>Mobile Number</h6>
+                
                 <div className ='row'>
-                    <div className ='col-md-4'>                    
-                    <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">+91</span>
-                    </div>
-                    <input type="text" className="form-control" placeholder="Mobile Number" disabled ={this.state.infoEdit}
-                          name= 'mobile' value = {this.state.mobile} onChange ={this.handleChange} />
-                    </div>
+                    <div className ='col-md-6'>    
+                        <h6 className ='mt-4'>Mail Address</h6>                
+                        <textarea type="text" aria-label="Address" className="form-control account__address" disabled ={this.state.infoEdit}
+                            name= 'address' value = {this.state.address} onChange ={this.handleChange} />  
                     </div>
                 </div>
 
-                <div className ='row mt-4'>
+                 
+
+                <div className ='row mt-4 '>
                     <div className ='col-md-4'>                    
                     <button type="button" className="btn btn-primary w-50" onClick={this.handleSubmit}>
                         Save

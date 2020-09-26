@@ -2,8 +2,7 @@ const Cart = require('../models/cart')
 const cartController ={}
 
 cartController.create =(req,res) =>{
-    const body = req.body
-     
+    const body = req.body     
     const cart = new Cart(body)
     cart.customerID = req.user._id
     cart.save()

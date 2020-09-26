@@ -1,30 +1,23 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getOrderSummary} from '../../actions/orderAction'
+import './OrderSummary.css'
 
 class OrderSummary extends React.Component {
 
     componentDidMount = ()=>{
         this.props.dispatch(getOrderSummary()) 
-
-        const refersh =  setInterval( () =>{  
-
-            if(this.props.orders.length ) {             
-                clearInterval(refersh)  
-                               
-            }
-        },1000)
-    }
+     }
 
     render() {
         return(
-            <div className ='container'>
+            <div className ='orderSummary_container'>
                 <h3> Order Summary </h3>
                 <table className="table table-striped table-dark table-bordered ">
                     <caption className ='align-text-top'>List of {this.props.orders.length} orders</caption>
                     <thead className ='bg-success'>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">Sl.no</th>
                             <th scope="col">Order ID</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Price</th>

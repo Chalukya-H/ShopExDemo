@@ -14,14 +14,7 @@ class  ProductShowByCategory extends React.Component {
         }
     }
     componentDidMount = ()=>{
-        this.props.dispatch(getProductsbyCategory(this.props.match.params.id)) 
-
-        const refersh =  setInterval( () =>{            
-            if(this.props.products.length){
-                clearInterval(refersh) 
-                this.setState({products:this.props.products})
-            }
-        },1000)
+        this.props.dispatch(getProductsbyCategory(this.props.match.params.id))  
  
     }
  

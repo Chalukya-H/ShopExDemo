@@ -1,8 +1,9 @@
 import React from 'react'  
-import {Link} from 'react-router-dom' 
 import {getProductsbyQuery} from '../../actions/productAction'
-import {connect} from 'react-redux'
-
+import {connect} from 'react-redux' 
+import ProductCard from './ProductCard'
+import './Card.css'
+import { Link } from 'react-router-dom'
 
 class ProductSeachbyName extends React.Component {
     constructor(){
@@ -21,46 +22,25 @@ class ProductSeachbyName extends React.Component {
                 clearInterval(refersh)   
                 this.setState({ products:this.props.products})                
             }
-        },1000)
- 
+        },1000) 
     }
+
+    
  
     render() { 
         return(         
-            <div>
+            <div className ='productList_container'>
               {
                   this.state.products.length !== 0 ?
-                    <div className ='container  ml-5'>  
+                    <div className ='productList_container row'>  
                         {
                             this.state.products.map((product,i) =>{  
-                                    return (
-                                    <Link className = 'col-md-3' to={`/products/${product._id}`} 
-                                        style ={{color:'black',textDecoration:'none'}} key={i+1}>                                            
-                                        <div className="card mb-1" >
-                                            <div className="row no-gutters">
-                                                <div className="col-md-3 mt-3">
-                                                    <img src= {`${this.state.path}/${product.mainImage}`} className="card-img ml-5" alt="..." 
-                                                        style ={{height:'200px',width:'150px'}}/>
-                                                </div>
-                                                <div className="col-md-9">
-                                                    <div className="card-body">
-                                                        <h5 className="card-title">{product.name}</h5>
-                                                        <h4> <span className ='fa fa-rupee'></span> {product.price}</h4> 
-                                                        
-                                                        <ul style ={{listStyleType:'circle'}}>
-                                                        {
-                                                            
-                                                            product.description.split('--').map((text,i) =>{
-                                                                return   <li key ={i}>{text}</li>  
-                                                            })
-                                                        }
-                                                    </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                      </div>
-                                    </Link>
-                                    )
+                                return (
+                                <Link to= {`/products/${product._id}`}  className ='product__link' key = {i+1} >
+                                    <ProductCard image = {product.mainImage} 
+                                        title = {product.shortname} price ={product.price}  />
+                                </Link>
+                                )
                             })
                         } 
                   </div> 
@@ -70,7 +50,7 @@ class ProductSeachbyName extends React.Component {
                         <span className="sr-only">Loading...</span>
                     </div>
                   </div>
-                //   <h2> Products not found for selected category... {this.state.products.length }</h2>
+                
               }
  
             </div>

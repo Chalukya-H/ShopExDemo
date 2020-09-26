@@ -1,14 +1,19 @@
-import axios from 'axios' 
+import axios from 'axios'
 import swal from 'sweetalert'
+ 
+
+const URL = "http://localhost:3030"
+ 
+
 
 export const setUserInfo = (user) =>{
     return {type: 'SET_USER' ,  payload:user}
 }
 
 export const stratLogin = (userData,redirect,refresh) =>{
-   
+     console.log(redirect)
     return(dispatch) => {
-        axios.post('/users/login',userData)
+        axios.post(`${URL}/users/login`,userData)
         .then(response => {
             if(response.data.hasOwnProperty('error')){                
                 
@@ -17,22 +22,24 @@ export const stratLogin = (userData,redirect,refresh) =>{
                     icon: "error" ,
                     button :'OK'                   
                   })
-             } else {
+             } 
+             else {
                  localStorage.setItem('token',response.data.token)
                   
-                 axios.get('users/account',{headers :{
+                 axios.get(`${URL}/users/account`,{headers :{
                      'auth':localStorage.getItem('token')
                     }
                  })
 
-                 .then(response =>{
+                 .then(response =>{ 
                      dispatch(setUserInfo(response.data))
                      swal({
                         title: 'Login Successfull !',                    
                         icon: "success",
                         button :'OK'                     
                       }).then( ()=>{
-                        redirect()
+                        // redirect() 
+                        // this.props.history.push('/ShopEx')    
                         refresh()
                       }) 
 
@@ -54,19 +61,29 @@ export const stratLogin = (userData,redirect,refresh) =>{
 
 }
 
-export const startRegister = (userData,redirect) =>{
+export const startRegister = (userData,refresh) =>{
 
     return(dispatch) =>{
-        axios.post('/users/register',userData)
+        axios.post(`${URL}/users/register`,userData)
         .then( response =>{
             
-            if(response.data.hasOwnProperty('error') || response.data.hasOwnProperty('errors')){                 
+            if(response.data.hasOwnProperty('error') || response.data.hasOwnProperty('errors')){                
+                console.log(response.data) 
                 alert(response.data.error)
-                redirect()
+                
+                refresh()
             }
-            else {
-                alert('Registered Successfully')
-                redirect()
+            else {  
+                           
+                swal({
+                    title: 'Registered Successfully !',                    
+                    icon: "success",
+                    button :'OK'                     
+                  }).then( ()=>{
+                     
+                    refresh()
+                  }) 
+               
             }
         })
 
@@ -79,7 +96,7 @@ export const startRegister = (userData,redirect) =>{
  
 export const startGetUser =() =>{
     return(dispatch) => {
-        axios.get('/users/account' , {  headers : {
+        axios.get(`${URL}/users/account` , {  headers : {
             'auth' : localStorage.getItem('token') 
              }
         })
@@ -100,16 +117,16 @@ export const editUser = (user) => {
 }
 
 export const EditUserInfo = (userData,id,refresh) =>{
-    // console.log('Edit',userData,id)
+   
     return(dispatch) =>{
-        axios.put(`/users/${id}`,userData,{
+        axios.put(`${URL}/users/${id}`,userData,{
             headers : {
                 'auth' : localStorage.getItem('token') 
                  }
         })
 
         .then( response =>{
-            // console.log(response.data)
+            
             if(response.data.hasOwnProperty('error') || response.data.hasOwnProperty('errors')) {
                 alert('Customer Data not Updated !')
             } else {

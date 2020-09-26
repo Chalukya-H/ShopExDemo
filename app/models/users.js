@@ -39,6 +39,18 @@ const userSchema  = new Schema ({
         type:String,
         default : 'customer'
     },
+    address : {
+        type:String,
+        default : ''
+    },
+    mobile : {
+        type:Number,
+        min:[10,'not lessthan 10 digit'] 
+    },
+    gender :{
+        type:String
+    },
+
     updatedAt : {
         type :Date,
         default : Date.now()

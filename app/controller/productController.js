@@ -3,18 +3,19 @@ const productController ={}
 
 productController.create = (req,res) =>{
     const body = req.body 
-    const product = new Product(body) 
-    product.mainImage = req.files[0].destination + req.files[0].filename
-    product.cartImage = req.files[1].destination + req.files[1].filename
+    const product = new Product(body)     
+    product.mainImage = req.files[0].filename
+    product.cartImage = req.files[1].filename
 
     const des = body.description.split('\n').join('--')
     product.description = des
     product.save()
-    .then(product =>{
-      
+    .then(product =>{ 
+        console.log(product)     
         res.json(product)
     })
     .catch(err =>{
+        console.log(err)
         res.json(err)
     })
 
@@ -22,26 +23,17 @@ productController.create = (req,res) =>{
 
 
 productController.list = (req,res) =>{ 
-    if(req.user.role === 'Admin'){
-        Product.find().sort()
-        .then(product =>{
-            res.json(product)
-        })
-        .catch(err =>{
-            res.json(err)
-        })
     
-    } else {
-        Product.find({quantity : { $gt: 1 }})
-        .then(product =>{
+    Product.find({quantity : { $gt: 1 }})
+    .then(product =>{
 
-            // console.log(product)
-            res.json(product)
-        })
-        .catch(err =>{
-            res.json(err)
-        })
-    }     
+        // console.log(product)
+        res.json(product)
+    })
+    .catch(err =>{
+        res.json(err)
+    })
+       
     
 }
 

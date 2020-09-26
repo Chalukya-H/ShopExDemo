@@ -5,7 +5,6 @@ import orderReducer from '../reducer/ordersReducer'
 import productsReducer from '../reducer/productsReducer'
 import categoryReducer from '../reducer/categoryReducer'
 import cartReducer from '../reducer/cartReducer'
-
 const configureStore =() =>{
     const store = createStore ( combineReducers ({
         users:usersReducer,

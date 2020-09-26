@@ -5,32 +5,28 @@ import App from './App';
 import {Provider} from 'react-redux' 
 import configureStore from './store/configureStore'
 import {startGetUser} from './actions/userAction'
-import {getCategories} from './actions/categoryAction'
-// import {getProducts} from './actions/productAction'
+import {getCategories} from './actions/categoryAction' 
 import  'bootstrap/dist/css/bootstrap.css'
 import  '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Footer from '../src/components/home/footer'
+
 
 const store = configureStore()
-store.subscribe( () =>{
-  console.log('Storevalue',store.getState())
+store.subscribe( () =>{ 
   store.getState()
 })
  
 // handle page reload
-if(localStorage.getItem('token')) {
-  store.dispatch(startGetUser())
-  store.dispatch(getCategories())
-  // store.dispatch(getProducts())
+if(localStorage.getItem('token')) {   
+  store.dispatch(getCategories())   
 }
+ 
 
 const ele = (
   <Provider store ={store}>
-      <App/>
-      <Footer/>
+      <App/> 
+      {/* <Footer/> */}
   </Provider>
 )
 
-ReactDOM.render( ele, document.getElementById('root')
-);
+ReactDOM.render( ele, document.getElementById('root') );
   

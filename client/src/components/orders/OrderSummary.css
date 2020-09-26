@@ -1,0 +1,8 @@
+.orderSummary_container{
+    width: 90%; 
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin: 10px;
+}
+

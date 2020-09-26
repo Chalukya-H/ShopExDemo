@@ -1,0 +1,32 @@
+.Menu_headerNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0;
+}
+
+.profile__button{
+    background-color: lightgreen;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    outline: none;
+    border: none;
+}
+ 
+.Menuheader__link{
+    color: white;
+    text-decoration: none;
+}
+
+.header__cart  , .header__signOut {
+    text-decoration: none;
+    width: 40px !important;
+    height: 30px !important;    
+}
+
+.header__signOut{
+    margin-right: 20px;
+}
+
+ 

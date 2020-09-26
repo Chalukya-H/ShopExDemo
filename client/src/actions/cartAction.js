@@ -1,4 +1,5 @@
 import axios from 'axios'
+const URL = "http://localhost:3030"
 
 export const addCartInfo = (cart) =>{
     return {type: 'CREATE_CART' ,  payload:cart}
@@ -13,16 +14,15 @@ export const addProducttoCart = (formdata,redirect)=>{
             currentQuantity : 1,
             id : formdata.productID
          }
-        axios.put('/products/quantity/update',product)
-        .then( response =>{
-            // console.log(response.data)
+        axios.put(`${URL}/products/quantity/update`,product)
+        .then( response =>{ 
             if(response.data.hasOwnProperty('message')) {
                 alert(response.data.message)
             } else if(response.data.hasOwnProperty('error') ){
                 alert(response.data.error)
             } else { 
             
-                axios.post('/cart', formdata,{  headers : {
+                axios.post(`${URL}/cart`, formdata,{  headers : {
                     'auth' : localStorage.getItem('token') 
                     }
                     })
@@ -44,7 +44,7 @@ export const addProducttoCart = (formdata,redirect)=>{
 export const getProducttoCart = ()=>{
     return(dispatch) => {
          
-        axios.get('/cart', {  headers : {
+        axios.get(`${URL}/cart`, {  headers : {
             'auth' : localStorage.getItem('token') 
              }
             })
@@ -66,14 +66,14 @@ export const UpdateCartInfo = (cart) =>{
 export const updateCartQuantity = (formData,refresh) =>{
     return(dispatch) =>{
       
-        axios.put('products/quantity/update',formData)
+        axios.put(`${URL}/products/quantity/update`,formData)
         .then( response =>{
             if(response.data.hasOwnProperty('message')) {
                 alert(response.data.message)
             } else if(response.data.hasOwnProperty('error') ){
                 alert(response.data.error)
             } else { 
-                axios.put('/cart/qunatity/update',formData , {  headers : {
+                axios.put(`${URL}/cart/qunatity/update`,formData , {  headers : {
                     'auth' : localStorage.getItem('token') 
                      }
                     })
@@ -98,7 +98,7 @@ export const updateCartQuantity = (formData,refresh) =>{
 export const deleteProducttoCart = (id,refresh)=>{
     
     return(dispatch) => {         
-        axios.delete(`/cart/${id}`, {  headers : {
+        axios.delete(`${URL}/cart/${id}`, {  headers : {
             'auth' : localStorage.getItem('token') 
              }
             })
@@ -114,7 +114,7 @@ export const deleteProducttoCart = (id,refresh)=>{
                     currentQuantity : response.data.quantity,
                     id : response.data.productID
                  }
-                axios.put('/products/quantity/update',product)
+                axios.put(`${URL}/products/quantity/update`,product)
                 .then( response =>{
                   
                     if(response.data.hasOwnProperty('message')) {

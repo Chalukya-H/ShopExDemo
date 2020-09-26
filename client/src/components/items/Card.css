@@ -1,0 +1,9 @@
+ .productList_container{
+    display: flex;  
+   max-width: 1300px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 10px;
+   justify-content: center;
+}
+   

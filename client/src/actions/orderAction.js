@@ -2,12 +2,14 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import {getProducttoCart} from './cartAction'
 
+const URL = "http://localhost:3030"
+
 export const setOrderSummary = (orders) =>{
     return {type: 'SET_ORDERS' ,  payload:orders}
 }
 export const getOrderSummary =()=>{
     return(dispatch) => {
-        axios.get('/orders' , {  headers : {
+        axios.get(`${URL}/orders` , {  headers : {
             'auth' : localStorage.getItem('token') 
              }
         })
@@ -39,7 +41,7 @@ export const getOrderSummary =()=>{
 
 export const getOrdersDetails =()=>{
     return(dispatch) => {
-        axios.get('/orders/list' , {  headers : {
+        axios.get(`${URL}/orders/list` , {  headers : {
             'auth' : localStorage.getItem('token') 
              }
         })
@@ -74,7 +76,7 @@ export const addOrderInfo = (order) =>{
 export const addProductstoOrder = (formData , refresh) =>{
     return(dispatch) => {     
             
-        axios.delete(`/cart/delete/all`, {  headers : {
+        axios.delete(`${URL}/cart/delete/all`, {  headers : {
             'auth' : localStorage.getItem('token') 
              }
             })
@@ -84,7 +86,7 @@ export const addProductstoOrder = (formData , refresh) =>{
               } else {                  
                 dispatch(getProducttoCart())               
                 
-                axios.post('/orders',formData,{  headers : {
+                axios.post(`${URL}/orders`,formData,{  headers : {
                     'auth' : localStorage.getItem('token') 
                      }
                     })

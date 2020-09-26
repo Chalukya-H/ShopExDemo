@@ -1,96 +1,99 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {getProductsbyID} from'../../actions/productAction' 
-  import {addProducttoCart} from '../../actions/cartAction'
+import {addProducttoCart} from '../../actions/cartAction'
+import {startGetUser} from '../../actions/userAction' 
+import SingleProductCard from './SingleProductCard' 
+import './SingleProduct.css'
+import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
+
 class ShowSingleProduct extends React.Component{
 
     constructor () {
         super()
-        this.state = {
-            products: {}  ,
-            path : window.location.origin ,
-            quantity : 1
-                 
+        this.state = {             
+            quantity : 1  ,
+            role: ''               
         }
     }
-    componentDidMount () {  
-             
+    componentDidMount () {                
         this.props.dispatch(getProductsbyID(this.props.match.params.id ))  
-
-        const refersh =  setInterval( () =>{  
-            if(this.props.products.length ) {             
-                clearInterval(refersh)                  
-                const products =   this.props.products[0] 
-                this.setState({products})
-            }
-        } , 1000)
+        this.props.dispatch(startGetUser())  
     }
  
-    handleCartAdd = () =>{
+    handleCartAdd = (product) =>{
         const formData = {
-            name : this.state.products.name,
-            price :this.state.products.price,
+            name : product.name,
+            price :product.price,
             quantity: this.state.quantity,
-            image : this.state.products.cartImage,
-            productID:this.state.products._id
+            image : product.cartImage,
+            productID:product._id
         }
         
         const redirect = () =>{
-            return window.location.href = '/cart'            
+            return window.location.reload();  
         }
         
         this.props.dispatch(addProducttoCart(formData,redirect))
-
     }
-    render() { 
-       
+
+    render() {         
          return(
-             <div>
-                 { 
-                    this.state.products !== {} && this.state.products.mainImage?
-                        <div className ='container-fluid  mt-5'> 
-                            <div className ='row'>                               
-                                <div className ='col-3 align-self-center'> 
-                                    <img src = {`${this.state.path}/${this.state.products.mainImage}`} 
-                                          className ='image img mb-5'
-                                        alt="Image not found" style = {{ height:'300px',width:'80%',marginLeft: '6%',  marginRight: 'auto'}} />
-                                    <br/>
-                                    {
-                                        localStorage.getItem('token')  ?
-                                         <div>
-                                            <input type= 'submit' id='submit' name ='submit' className ='btn btn-warning w-100  ml-3' 
-                                                value ='ADD TO CART' onClick ={this.handleCartAdd}  disabled = {this.props.users[0].role ==='Admin' ? true : false }/>  
-                                            
-                                          </div> 
-                                          :  
-                                          <h4> Login or Register to order the product </h4>  
-                                    }
-                                   
-                                </div>
-
-                                <div className ='col'>
-                                    <h2>{this.state.products.name}</h2> <h6>&nbsp;</h6>
-                                    <h4> <span className ='fa fa-rupee'></span> {this.state.products.price}</h4> 
-                                                                        
-                                     <ul style ={{listStyleType:'circle',fontSize:'22px'}}>
+            <div className = 'product__container'> 
+                {
+                    this.props.products.length ?
+                        this.props.products.map(product =>{
+                            return (
+                                <div className ='container-fluid' key = {product._id} > 
+                                    <div className ='product__row'> 
+                                        <SingleProductCard 
+                                            image = {product.mainImage} 
+                                            user = {this.props.users} 
+                                            products = {product} 
+                                            handleSubmit = { () =>{ this.handleCartAdd(product)}} />
+                                    </div>
+                                    <div className ='product__row2'>
+                                        <div className ='product__details'>
+                                            <h2 className ='product__Name'>{product.name}</h2>  
+                                            <h4> <span className ='fa fa-rupee product__price'></span> { product.price}</h4>                                                                            
+                                            <ul className = 'product__desc'  >
+                                                {
+                                                    
+                                                    product.description ?
+                                                    product.description.split('--').map((text,i) =>{
+                                                        return   <li key ={i}>{text}</li>  
+                                                    }) : ''
+                                                }
+                                            </ul>  
+                                                                             
+                                        </div>
                                         {
-                                            
-                                            this.state.products.description ?
-                                            this.state.products.description.split('--').map((text,i) =>{
-                                                return   <li key ={i}>{text}</li>  
-                                            }) : ''
-                                        }
-                                    </ul>
-                                    
+                                               localStorage.getItem('token') && this.props.users.length  ?
+                                               this.props.users[0].role !=='Admin' ? 
+                                                        <Link to ='/cart' className =  'product__Addcart'
+                                                            onClick ={() =>{ this.handleCartAdd(product)}} >
+                                                                <ShoppingCartRoundedIcon/> ADD TO CART </Link>                   
+                                                    :  
+                                                    <Link to ='#' className = 'product__Login'> 
+                                                         Admin Can't Add products</Link>    
+                                                        
+                                                :
+                                                <Link to ='/login' className =  'product__Login'>   
+                                                       <AccountCircleRoundedIcon/> Login to order the product</Link>    
+                                        }   
+                                    </div>
                                 </div>
-                            </div>
-
-                         </div>
-                     :''
-                 }
-                 <br/>
-                 
-             </div>
+                            )
+                        })  
+                    :  
+                    <h4> Unable to Get the porduct details !! </h4>  
+                }
+                
+            </div>     
+            
+            
          )
     }
 }
