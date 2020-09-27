@@ -75,8 +75,7 @@ cartController.delete = (req,res) =>{
 cartController.deleteAll = (req,res) =>{
        
     Cart.remove({ customerID : req.user._id} )
-    .then( cart =>{
-         
+    .then( cart =>{         
         res.json(cart)
     })
 

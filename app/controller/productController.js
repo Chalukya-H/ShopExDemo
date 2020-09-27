@@ -11,11 +11,11 @@ productController.create = (req,res) =>{
     product.description = des
     product.save()
     .then(product =>{ 
-        console.log(product)     
+             
         res.json(product)
     })
     .catch(err =>{
-        console.log(err)
+         
         res.json(err)
     })
 
@@ -26,7 +26,6 @@ productController.list = (req,res) =>{
     
     Product.find({quantity : { $gt: 1 }})
     .then(product =>{
-
         // console.log(product)
         res.json(product)
     })

@@ -5,7 +5,7 @@ import {startGetUser} from '../../actions/userAction'
 import {connect} from 'react-redux'
 import SearchIcon from '@material-ui/icons/Search'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
+// import CategoryMenu from './categoryMenu'
 import AfterLoginMenu from './AfterLoginMenu'
 import './Topmenu.css'
 import './LoginMenu.css'
@@ -21,10 +21,9 @@ class TopMenu extends React.Component{
     componentDidMount =()=>{
         this.props.dispatch(startGetUser()) 
        
-    }
+    } 
 
-
-      handleSearch =(e) =>{
+    handleSearch =(e) =>{
           this.setState ({searchText : e.target.value})
       }
 
@@ -46,24 +45,20 @@ class TopMenu extends React.Component{
                         onChange = {this.handleSearch} />
                         <SearchIcon className ='header__seachIcon' onClick ={this.handleSubmitSearch} />
                 </div>
-                    {
-                         localStorage.getItem('token') !== '' &&   localStorage.getItem('token') !== null ?  
-                            <AfterLoginMenu userData = {this.props.users}/>
+                {
+                        localStorage.getItem('token') !== '' &&   localStorage.getItem('token') !== null ?  
+                        <AfterLoginMenu userData = {this.props.users}/>
 
-                        :
-                        <div className ='headerNav'>                   
-                            <Link to ='/login' className ='header__link'> 
-                                <div  className ='header__option'>  
-                                    <AccountCircleIcon className ='header__account' />                      
-                                </div>                                             
-                            </Link>
-                        
-                        </div>
-                    }               
-               
-
-
-               
+                    :
+                    <div className ='headerNav'>                   
+                        <Link to ='/login' className ='header__link'> 
+                            <div  className ='header__option'>  
+                                <AccountCircleIcon className ='header__account' />                      
+                            </div>                                             
+                        </Link>
+                    
+                    </div>
+                }  
            </nav>
         )
     }

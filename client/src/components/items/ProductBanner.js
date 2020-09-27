@@ -27,7 +27,7 @@ class ProductBanner extends React.Component{
        
         return(            
             <div className = 'productBanner'>
-                <img className ='home__image' src = {image3}  alt =''/>  
+                <img className ='home__image' src = {image3}  alt ='Pic not found' />  
                 {
                     this.props.products.length ?
                         <div className ='header__row row'>
@@ -52,13 +52,13 @@ class ProductBanner extends React.Component{
                             this.state.isLoading === false ? 
                                 <h2> There seems to be an issue. <br/> Please try after sometime. </h2>
                             :
-                                <div>
-                                     <span className ="spinner-grow text-danger  loadingSpinner" role="status"> </span>
-                                    <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
-                                    <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
-                                    <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
-                                    <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
-                                </div>
+                            <div>
+                                    <span className ="spinner-grow text-danger  loadingSpinner" role="status"> </span>
+                                <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
+                                <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
+                                <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
+                                <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
+                            </div>
                         }                   
                        
                     </div>

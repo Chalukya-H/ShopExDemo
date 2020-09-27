@@ -12,8 +12,7 @@
   .header__logo{
     width: 100px;
     margin-left: 20px;
-    margin-right: 20px; 
-    /* border-radius: 50%; */
+    margin-right: 20px;  
   }
 
   .header__searchInput{
@@ -21,10 +20,9 @@
     padding: 10px;
     border: none;
     width: 90%; 
-    outline: none;
-    /* text-align: center; */
+    outline: none; 
     padding-left: 40px;
-    border-radius: 5px;
+    border-radius: 2px;
   }
 
   .header__seachIcon{
@@ -32,7 +30,7 @@
     padding: 1px;
     height: 30px !important;    
     width: 40px !important;
-    border-radius: 5px;
+    border-radius: 2px;
    }
 
   .header__seach{
@@ -44,8 +42,8 @@
   .headerNav{
      display: flex; 
      justify-content: space-evenly;
-     margin-right: 10px;
-     margin-left: 20px;
+     margin-right: 60px;
+     /* margin-left: 20px; */
   }
 
   .header__link{
@@ -64,10 +62,26 @@
     width: 40px !important;
     height: 40px !important ;
     border-radius: 50%; 
-    background-color: green;
+    /* background-color: blue; */
   }
 
   .header__account:hover{
     background-color: red; 
 
+  }
+  
+
+  @media only screen and (max-width: 600px){
+    .headerNav{
+      margin: 0;
+      padding: 5px;
+    }
+    .header__seach{
+      width: 100%;
+      font-size: 13px;
+      padding: 2px;
+    }
+    .header__searchInput{
+      padding-left: 10px;
+    }
   }

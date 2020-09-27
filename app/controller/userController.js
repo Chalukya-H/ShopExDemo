@@ -48,7 +48,7 @@ userController.login = (req,res) => {
         } 
         bycryptjs.compare(body.password,user.password)
         .then( found => {
-            console.log(found)
+             
             if(found){
                 const tokenData =  {
                     _id : user._id,                   
@@ -68,7 +68,7 @@ userController.login = (req,res) => {
     })
 
     .catch(err =>{
-        console.log(err,'Login')
+      
         res.json(err)
     })
 }
@@ -88,7 +88,7 @@ userController.update = (req,res) =>{
         res.json(user)
     })
     .catch((err) => {
-        console.log(err)
+         
         res.json(err)
     })
 

@@ -46,6 +46,7 @@ class CategoryMenu extends React.Component {
                     </div> 
                 </div>
             </div>
+        
         )
        
     }

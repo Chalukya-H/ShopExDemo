@@ -28,13 +28,12 @@ categoryController.create = (req,res) =>{
 categoryController.list =(req,res) =>{
 
     Category.find()
-    .then( category =>{
-        
+    .then( category =>{        
         res.json(category.reverse())
     })
 
     .catch(err =>{
-        console.log(err)
+         
         res.json(err)
     })
 }
