@@ -4,6 +4,7 @@ import {addProductstoOrder} from '../../actions/orderAction'
 import { connect } from 'react-redux'
 import NumberFormat from 'react-number-format' 
 import {Link } from 'react-router-dom' 
+import {Helmet} from 'react-helmet'
 import './OrderCreate.css'
 
 class OrderCreate extends React.Component {
@@ -101,6 +102,9 @@ class OrderCreate extends React.Component {
     render(){          
         return (           
             <div className ='preOrder__container'>
+                <Helmet>
+                    <title> ShopEx - Confirm-Order </title>
+                </Helmet>
                 <h4  hidden = { this.state.readyToOrder && this.props.cartData.length ? false : true}  > Confirm Your Order! 
                     <button className="text-monospace text-decoration-none order__edit" onClick ={this.handleInfoEdit} 
                        hidden = { this.state.readyToOrder && this.props.cartData.length ? false : true} >Edit</button>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'  
 import VanillaTilt from 'vanilla-tilt'
+import {Helmet} from 'react-helmet'
 import './SingleProductCard.css' 
 
 function SingleProductCard (props){
@@ -12,6 +13,9 @@ function SingleProductCard (props){
     
     return(
         <div className ='product_container' >
+            <Helmet>
+                <title> ShopEx - Product Desc </title>
+            </Helmet>
             <div className ='product_box' >   
             {
                 localStorage.getItem('token') &&  props.user.length ?

@@ -2,6 +2,7 @@ import React from 'react'
 import {startGetUser,EditUserInfo} from '../../actions/userAction'
 import {connect} from 'react-redux'
 import EditIcon from '@material-ui/icons/Edit';
+import {Helmet} from 'react-helmet'
 import  './CustomerAccount.css'
 
 class CustomerInfo extends React.Component {
@@ -69,6 +70,9 @@ class CustomerInfo extends React.Component {
          
         return(
             <div className = 'customer__Infocontainer bg-light'>
+                <Helmet>
+                    <title> ShopEx - Profile </title>
+                </Helmet>
                 <div className ='row'>
                   <h2 className ='mb-4'> Personal Information </h2>
                   <EditIcon className=" ml-3 account__edit" onClick ={this.handleInfoEdit} 

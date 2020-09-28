@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux' 
+import {Helmet} from 'react-helmet'
 import {addCategories} from '../../actions/categoryAction'
 import './AddCategory.css'
 
@@ -30,6 +31,9 @@ class CategoryAdd extends React.Component {
     render(){
         return(
             <div className ='category__Addcontainer'> 
+               <Helmet>
+                    <title>ShopEx - Add Category</title>
+                </Helmet>
                 <h4> Add New Category  </h4>
                 <div className ='row mt-2'>                                     
                     <div className ='col-md-6 mb-1'> Category :           

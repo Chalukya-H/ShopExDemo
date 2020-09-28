@@ -5,7 +5,7 @@ import {startGetUser} from '../../actions/userAction'
 import {connect} from 'react-redux'
 import SearchIcon from '@material-ui/icons/Search'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// import CategoryMenu from './categoryMenu'
+import {Helmet} from 'react-helmet'
 import AfterLoginMenu from './AfterLoginMenu'
 import './Topmenu.css'
 import './LoginMenu.css'
@@ -35,6 +35,9 @@ class TopMenu extends React.Component{
          
         return (
            <nav className ='header'>
+                <Helmet>
+                    <title>ShopEx - Home</title>
+                </Helmet>
                 <Link to ='/'>
                     <img className = 'header__logo' src = {logo} alt =''/> 
                 </Link>

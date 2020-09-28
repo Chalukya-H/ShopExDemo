@@ -63,7 +63,7 @@ class ShowSingleProduct extends React.Component{
                                                     
                                                     product.description ?
                                                     product.description.split('--').map((text,i) =>{
-                                                        return   <li key ={i}>{text}</li>  
+                                                        return text === ''? '' :  <li key ={i}>{text}</li>  
                                                     }) : ''
                                                 }
                                             </ul>  

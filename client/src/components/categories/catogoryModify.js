@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux' 
+import {Helmet} from 'react-helmet'
 import {updateCategories,getCategories} from '../../actions/categoryAction'
 
 class CategoryModify extends React.Component {
@@ -38,6 +39,9 @@ class CategoryModify extends React.Component {
     render(){
         return(
             <div className ='category__Modifycontainer'>
+                <Helmet>
+                    <title>ShopEx - Update Category</title>
+                </Helmet>
                  <h4> Update Existing Category </h4>
                  <label htmlFor='mainId' >Category:</label> 
                 <div className = 'row'> 

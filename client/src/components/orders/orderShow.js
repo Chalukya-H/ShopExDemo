@@ -1,6 +1,7 @@
 import React from 'react'
 import {getOrdersDetails} from '../../actions/orderAction'
 import { connect } from 'react-redux' 
+import {Helmet} from 'react-helmet'
 import './OrderShow.css'
 
 class OrdersDisplay extends React.Component{
@@ -23,6 +24,9 @@ class OrdersDisplay extends React.Component{
          
         return(
             <div className = 'order_summary__container'>
+                <Helmet>
+                    <title> ShopEx - Orders </title>
+                </Helmet>
                 <div hidden = {this.props.orders.length ? false : true}>
                     <h2>Your Orders !</h2>
                 </div>

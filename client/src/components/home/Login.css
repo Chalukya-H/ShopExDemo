@@ -237,3 +237,7 @@ button.ghost {
 	width: 40px;
 }
  
+
+.header__logo{
+	border-radius: 14%;
+}

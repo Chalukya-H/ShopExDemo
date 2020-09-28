@@ -53,7 +53,7 @@ class ProductBanner extends React.Component{
                                 <h2> There seems to be an issue. <br/> Please try after sometime. </h2>
                             :
                             <div>
-                                    <span className ="spinner-grow text-danger  loadingSpinner" role="status"> </span>
+                                <span className ="spinner-grow text-danger  loadingSpinner" role="status"> </span>
                                 <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
                                 <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>
                                 <span className="  spinner-grow text-danger loadingSpinner" role="status"> </span>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getOrderSummary} from '../../actions/orderAction'
+import {Helmet} from 'react-helmet'
 import './OrderSummary.css'
 
 class OrderSummary extends React.Component {
@@ -12,6 +13,9 @@ class OrderSummary extends React.Component {
     render() {
         return(
             <div className ='orderSummary_container'>
+                <Helmet>
+                    <title> ShopEx - Order Summary </title>
+                </Helmet>
                 <h3> Order Summary </h3>
                 <table className="table table-striped table-dark table-bordered ">
                     <caption className ='align-text-top'>List of {this.props.orders.length} orders</caption>

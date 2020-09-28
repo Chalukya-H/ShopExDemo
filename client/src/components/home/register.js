@@ -1,6 +1,6 @@
 import React from 'react' 
 import {startRegister} from '../../actions/userAction'
-import {connect} from 'react-redux'
+import {connect} from 'react-redux' 
 import './Login.css'
 
 class Register extends React.Component {
@@ -50,7 +50,7 @@ class Register extends React.Component {
 
     render() {
         return(
-            <div className="form-container sign-up-container">
+            <div className="form-container sign-up-container">               
                 <form onSubmit ={this.handleSubmit} className ='form_Signup'>
                     <h1>Create Account</h1>     <span></span>
                     <input type="text" placeholder="First Name"  className ='register__fnname' id='firstName' required={true} 

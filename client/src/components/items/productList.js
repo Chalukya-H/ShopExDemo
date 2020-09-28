@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getProducts} from '../../actions/productAction'
 import {getCategories} from '../../actions/categoryAction'
 import { Link } from 'react-router-dom'
+import {Helmet} from 'react-helmet'
 import './ProductList.css'
 
 class ProductsSummary extends React.Component {
@@ -15,6 +16,9 @@ class ProductsSummary extends React.Component {
     render() {
         return(
             <div className ='productList__container'>
+                <Helmet>
+                    <title> ShopEx - Product-Summary </title>
+                </Helmet>
                 <div className="row justify-content-start">
                     <div className="col-3">
                         <h3> Products Summary </h3>

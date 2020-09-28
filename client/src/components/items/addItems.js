@@ -4,6 +4,7 @@ import {getCategories} from '../../actions/categoryAction'
 import { addProduct } from '../../actions/productAction' 
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import {withRouter} from 'react-router-dom'
+import {Helmet} from 'react-helmet'
 import './AddProduct.css'
 
 class AddProduct extends React.Component{
@@ -78,6 +79,9 @@ class AddProduct extends React.Component{
 
         return(
             <div className ='newProduct__container'>
+                <Helmet>
+                    <title> ShopEx - Add Product </title>
+                </Helmet>
                 <form encType="multipart/form-data" className='newProduct_Infocontainer' onSubmit ={this.handleSubmit}  >  
                     <h3> Add Product</h3>                  
                     <div className ='newProduct__namesContainer'>

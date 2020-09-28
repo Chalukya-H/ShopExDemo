@@ -4,6 +4,7 @@ import Register from './register'
 import logo from '../../media/Logo-1.PNG'
 import {stratLogin} from '../../actions/userAction'
 import {Link} from 'react-router-dom'
+import {Helmet} from 'react-helmet'
 import './Login.css';
 
 class Login extends React.Component {
@@ -55,7 +56,9 @@ class Login extends React.Component {
     render() {
         return(
             <div className="login__container" id="container">
-                
+                 <Helmet>
+                    <title>ShopEx - Login</title>
+                </Helmet>
                 <Register/>
                 <div className="form-container sign-in-container">
                     <form onSubmit = {this.handleSubmit} className ='form_Signin'>
@@ -68,9 +71,9 @@ class Login extends React.Component {
                         <button className ='login__signIn' id='signin' name ='signin' >Sign In</button>
                     </form>
                 </div>
-                <div className="overlay-container">
+                <div className="overlay-container">                    
                     <div className="overlay">
-                        <div className="overlay-panel overlay-left">
+                        <div className="overlay-panel overlay-left">                           
                             <Link to ='/'>
                                 <img className = 'header__logo' src = {logo} alt =''/> 
                             </Link>

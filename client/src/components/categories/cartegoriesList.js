@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getCategories} from '../../actions/categoryAction'
+import {Helmet} from 'react-helmet'
 import './CategoryList.css'
 
 class CategoriesSummary extends React.Component {
@@ -13,7 +14,9 @@ class CategoriesSummary extends React.Component {
     render() {
         return(
             <div className ='category__container'>
-                
+                <Helmet>
+                    <title>ShopEx - Categories List</title>
+                </Helmet>
                 <div className="row justify-content-Start ml-2">
                     <div className="col-3 mt-3">
                         <h3> Categories Summary </h3>

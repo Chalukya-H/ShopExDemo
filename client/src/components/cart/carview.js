@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
  import {getProducttoCart,deleteProducttoCart,updateCartQuantity} from '../../actions/cartAction'
 import { connect } from 'react-redux'
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import {Helmet} from 'react-helmet'
 import './Cart.css'
 
 class Cart extends React.Component {
@@ -90,6 +91,9 @@ class Cart extends React.Component {
     render() {       
         return(
             <div className = 'cart__container' onLoad ={ this.handlePriceDetails} >
+                <Helmet>
+                    <title> ShopEx - Cart </title>
+                </Helmet>
                 <h4 style ={{ visibility : this.props.cartData.length ? 'visible' : 'hidden'}}>
                     My Cart ({ this.props.cartData.length}) </h4> 
                 {
