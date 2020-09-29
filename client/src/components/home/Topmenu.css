@@ -68,6 +68,18 @@
 
   }
   
+.menuLines{
+  color: white;
+  font-size: 30px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+
+
+
+
+  
 
   @media only screen and (max-width: 600px){
     .headerNav{
@@ -85,3 +97,8 @@
   }
 
  
+
+
+
+
+

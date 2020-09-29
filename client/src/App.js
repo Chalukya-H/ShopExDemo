@@ -17,7 +17,7 @@ import ProductSeachbyName from './components/items/productsBySearch'
 import UpdateProduct from './components/items/updateProducts'
 import OrderCreate from './components/orders/orderCreate'
 import OrdersDisplay from './components/orders/orderShow'
-import Footer from './components/home/footer' 
+import Footer from './components/home/footer'  
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       
       <Switch>
           <Route path ='/'  exact = {true} >   
-            <TopMenu/> 
+            <TopMenu/>  
             <ProductBanner/> 
             <Footer/>
           </Route>

@@ -7,6 +7,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {Helmet} from 'react-helmet'
 import AfterLoginMenu from './AfterLoginMenu'
+import CategoryMenu from './sideBarMenu' 
 import './Topmenu.css'
 import './LoginMenu.css'
 
@@ -31,13 +32,23 @@ class TopMenu extends React.Component{
         window.location.href = `/search/q=${this.state.searchText}`
      }
 
+     openMenu = () =>{
+           document.getElementById('sidebarMenu__container').style.width = 'fit-content'  
+           document.getElementById('sidebarMenu__container').style.overflow = 'visible'      
+     }
+
     render() {
          
         return (
            <nav className ='header'>
                 <Helmet>
-                    <title>ShopEx - Home</title>
-                </Helmet>
+                    <title>ShopEx - Home</title>                     
+                </Helmet>  
+                <CategoryMenu/>  
+                <div>
+                    <span className = 'menuLines' onClick ={this.openMenu}> &#9776;</span>
+                </div>
+                          
                 <Link to ='/'>
                     <img className = 'header__logo' src = {logo} alt =''/> 
                 </Link>
@@ -62,6 +73,7 @@ class TopMenu extends React.Component{
                     
                     </div>
                 }  
+
            </nav>
         )
     }

@@ -1,72 +1,53 @@
 import React from 'react'  
-import {Link} from 'react-router-dom' 
-import {getProductsbyCategory} from '../../actions/productAction'
+import {Link} from 'react-router-dom'  
 import {connect} from 'react-redux'
-
+import ProductCard from './ProductCard'
+import './Card.css'
 
 class  ProductShowByCategory extends React.Component {
-   
     constructor(){
         super()
-        this.state={
-            products :[],
-            path : window.location.origin   
+        this.state = {
+            isLoading : true
         }
     }
-    componentDidMount = ()=>{
-        this.props.dispatch(getProductsbyCategory(this.props.match.params.id))  
- 
+    componentDidMount = ()=>{ 
+        setTimeout( ()=>{ 
+            if(this.props.products.length === 0){
+                this.setState({isLoading : false})
+            }
+        } , 3000) 
+       
     }
- 
-    render() {
-           
+
+    render() {          
         return(         
-            <div>
+            <div className ='productList_container'>
               {
-                  this.state.products.length !== 0 ?
-                    <div className ='container  ml-5'>  
+                  this.props.products.length !== 0 ?
+                    <div className ='productList_container row'>  
                         {
-                            this.state.products.map((product,i) =>{  
-                                    return (
-                                    <Link className = 'col-md-3' to={`/products/${product._id}`} 
-                                        style ={{color:'black',textDecoration:'none'}} key={i+1}>                                            
-                                        <div className="card mb-1" >
-                                            <div className="row no-gutters">
-                                                <div className="col-md-3 mt-3">
-                                                    <img src= {`${this.state.path}/${product.mainImage}`} className="card-img ml-5" alt="..." 
-                                                        style ={{height:'200px',width:'150px'}}/>
-                                                </div>
-                                                <div className="col-md-9">
-                                                    <div className="card-body">
-                                                        <h5 className="card-title">{product.name}</h5>
-                                                        <h4> <span className ='fa fa-rupee'></span> {product.price}</h4> 
-                                                        
-                                                        <ul style ={{listStyleType:'circle'}}>
-                                                        {
-                                                            
-                                                            product.description.split('--').map((text,i) =>{
-                                                                return  text ? <li key ={i}>{text}</li>  : <br/>
-                                                            })
-                                                        }
-                                                    </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                      </div>
-                                    </Link>
-                                    )
+                            this.props.products.map((product,i) =>{  
+                                return ( 
+                                    <Link to= {`/products/${product._id}`}  className ='product__link' key = {i+1} >
+                                        <ProductCard image = {product.mainImage} 
+                                            title = {product.shortname} price ={product.price}  />
+                                    </Link>                                
+                                )
                             })
                         } 
                   </div> 
                   : 
                   <div className="d-flex justify-content-center">
-                    <div className="spinner-border text-danger m-5 " role="status">
-                        <span className="sr-only">Loading...</span>
-                        
-                    </div>
-                    {/* <h2> Products not found for selected category... </h2> */}
-                  </div>
-                //   <h2> Products not found for selected category... {this.state.products.length }</h2>
+                    {
+                        this.state.isLoading === false ? 
+                            <h2> No Product Found ! <br/> Please search some other products. </h2>
+                        :
+                        <div className="spinner-border text-danger m-5 " role="status">
+                            <span className="sr-only">Loading...</span>                        
+                        </div> 
+                    }                   
+                  </div>               
               }
  
             </div>

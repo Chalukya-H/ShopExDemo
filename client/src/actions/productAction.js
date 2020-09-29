@@ -1,9 +1,6 @@
 import axios from 'axios'
 const URL = 'http://localhost:3030'
-
-export const redirect = (path) =>{
-    return window.location.href = path            
-}
+ 
 
 export const addProductinfo= (product) => {
     return { type: 'ADD_PRODUCT', payload: product}
@@ -67,7 +64,7 @@ export const getTopProducts = ()=>{
     }
 
 
-export const getProductsbyCategory = (id)=>{    
+export const getProductsbyCategory = (id,redirect)=>{    
     return(dispatch) =>{
         axios.get(`${URL}/products/query/${id}`, {
             headers : { 
@@ -75,12 +72,10 @@ export const getProductsbyCategory = (id)=>{
             }
         })
         .then(response =>{ 
-                    
-            dispatch(addProductinfo(response.data))
-            
+            dispatch(addProductinfo(response.data))   
+            redirect()         
         })
-        .catch( err =>{
-              
+        .catch( err =>{              
             console.log(err)
         })
     }

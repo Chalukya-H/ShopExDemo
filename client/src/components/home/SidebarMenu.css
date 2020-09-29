@@ -1,0 +1,102 @@
+.sidebarMenu__container{
+    height: 100% !important;
+    position: fixed; 
+    top: 0;
+    width: 0;
+    margin-top: 97px;
+    background: black !important;
+    color: white !important;   
+    overflow: hidden; 
+    transition: all 1s;    
+}
+
+.Catergory_MenuIcon{
+    color: white;     
+    margin-left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+ 
+
+.sidebarMenu{
+    list-style: none;
+    margin: 0; 
+    padding: 0;
+    padding-top: 10px;   
+}
+
+.sidebarMenu li { 
+    position: relative;
+    list-style: none;    
+    width: max-content;
+}
+
+.sidebarMenu li p {
+    list-style: none;
+    display: block;     
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    padding: 5px; 
+    font-size: 15px;
+    height: 30px;
+
+}
+ 
+
+.sidebarMenu li p{
+    display: block;
+    text-transform: uppercase;
+    font-family: bignoodletitling;
+    font-size: 17px;
+    letter-spacing: 3px;
+    padding: 10px;
+    padding-bottom: 40px;
+}
+
+
+.sidebarMenu li:hover > p {
+    color: darkorange;
+    cursor: pointer;
+}
+
+.sidebarMenu li ul , .sidebarMenu li ul li ul {
+    background: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
+    z-index: 999;
+    left: 200px;
+    top: 0;
+    list-style: none;
+    position: absolute;
+    height: auto;
+    
+}
+
+
+.sidebarMenu li:hover >  ul , .sidebarMenu li ul li:hover > ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    left: 220px;
+    width: max-content;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.closeMenu{
+    font-size: 35px !important;     
+    cursor: pointer;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: 20px;  
+     
+}
+
+.closeMenuIcon{
+    font-size: 35px;
+}
+
+

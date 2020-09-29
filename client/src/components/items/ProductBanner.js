@@ -16,7 +16,7 @@ class ProductBanner extends React.Component{
     componentDidMount = ()=>{
         this.props.dispatch(getTopProducts())   
         setTimeout( ()=>{ 
-            if(this.props.products.length === 3){
+            if(this.props.products.length === 0){
                 this.setState({isLoading : false})
             }
         } , 3000) 
