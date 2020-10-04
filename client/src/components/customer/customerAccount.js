@@ -137,7 +137,8 @@ class CustomerInfo extends React.Component {
                 <div className ='row'>
                     <div className ='col-md-6'>    
                         <h6 className ='mt-4'>Mail Address</h6>                
-                        <textarea type="text" aria-label="Address" className="form-control account__address" disabled ={this.state.infoEdit}
+                        <textarea type="text" aria-label="Address" className="form-control account__address"
+                             disabled ={this.state.infoEdit}
                             name= 'address' value = {this.state.address} onChange ={this.handleChange} />  
                     </div>
                 </div>
