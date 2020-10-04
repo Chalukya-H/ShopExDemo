@@ -76,3 +76,55 @@
     margin-bottom: auto; 
     align-self: center;
 }
+
+
+@media (max-width:600px){
+    .order_summary__container{
+        width: 95%;          
+        padding: 3px;       
+    } 
+
+    .order_summary__container > div > h2 {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    .order_summary__label{ 
+        font-size: .9em;
+        font-weight: 600;
+        padding-left: 10px;
+        border-radius: 3px;  
+    }
+
+    .order_summary__label::before{
+        content: none;
+    }
+        
+    .order_summary__containerbox{       
+        margin: 10px 10px;  
+         
+    }
+        
+    .order_summary__containerbox.active .order_summary__label::before{
+        content: none;
+    }
+        
+    .order_card-img{
+        width: 80px;
+        height: 80px;
+        padding: 5px;
+        margin: 2px;
+        margin-top: 8%;
+    }
+
+    .order_summary__Info{
+        margin-left:  10px; 
+    }
+    .order_summary__Info >h6{
+       font-size: 12px;   
+       
+    }
+    .order_summary__containerbox.active .order_summary__content{
+        height: max-content;
+        
+    }
+}

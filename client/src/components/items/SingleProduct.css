@@ -126,3 +126,127 @@
     text-decoration: none;
     outline: none;
 }
+
+
+
+
+
+@media (max-width : 600px) {
+    .product__container{
+        display: flex; 
+        background: lightslategrey;     
+        margin: 5px; 
+        width: fit-content;        
+    } 
+
+    .container-fluid{
+        display: block;
+        padding: 5px;
+        padding: 5px 5px 5px !important;
+    }
+
+    .product__Name{
+        font-size: 1.4em !important;
+        font-weight: 700;
+        font-style: italic;
+        color:black;
+        background: whitesmoke;
+    }
+
+    .product__details > h4 , .product__price {
+        font-size: 1.2em !important;
+        font-weight: 700;
+        font-style: italic;
+        color: black;
+    }
+
+    .product__desc{
+        list-style-type: square;
+        font-size: 16px;
+        line-height: 40px;
+        color: white;
+    }
+
+    .product__row{
+       width: 100%; 
+       margin-right: auto;
+    } 
+    
+    .product__Addcart{  
+        margin-left: 15px;     
+        width: 80%;     
+        font-weight: 600;
+        font-size: 15px;        
+    }   
+
+}
+@media screen and (max-width: 600px) and (min-width: 450px){
+    .product__row{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+     }
+}
+
+@media screen and (max-width: 440px) and (min-width: 340px){
+    .product__row{
+        width: 100%;
+        margin-left: 15px;
+        margin-right: auto;
+     }
+}
+
+
+
+@media (max-width : 900px) and (min-width:600px) {
+    .product__container{
+        display: flex; 
+        background: lightslategrey;     
+        margin: 5px; 
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+
+    .container-fluid{
+        display: block;
+        padding: 5px;
+        padding: 5px 5px 5px !important;
+    }
+
+    .product__Name{
+        font-size: 1.4em !important;
+        font-weight: 700;
+        font-style: italic;
+        color:black;
+        background: whitesmoke;
+    }
+
+    .product__details > h4 , .product__price {
+        font-size: 1.2em !important;
+        font-weight: 700;
+        font-style: italic;
+        color: black;
+    }
+
+    .product__desc{
+        list-style-type: square;
+        font-size: 16px;
+        line-height: 40px;
+        color: white;
+    }
+
+    .product__row{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+     }
+    
+    .product__Addcart{  
+        margin-left: 15px;     
+        width: 80%;     
+        font-weight: 600;
+        font-size: 15px;        
+    }   
+
+}

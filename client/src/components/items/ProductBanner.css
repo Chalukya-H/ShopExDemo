@@ -36,3 +36,9 @@
     outline: none;
     color: black;
 }
+ 
+@media  (max-width: 600px){    
+    .home__image{       
+        height: 25vh; 
+    }
+}

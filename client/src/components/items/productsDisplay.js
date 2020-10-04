@@ -38,10 +38,10 @@ class  ProductShowByCategory extends React.Component {
                         } 
                   </div> 
                   : 
-                  <div className="d-flex justify-content-center">
+                  <div className="d-flex justify-content-center product__loading">
                     {
                         this.state.isLoading === false ? 
-                            <h2> No Product Found ! <br/> Please search some other products. </h2>
+                            <h2 className ='msg_NoProductFound'> No Product Found ! <br/> Please search some other products. </h2>
                         :
                         <div className="spinner-border text-danger m-5 " role="status">
                             <span className="sr-only">Loading...</span>                        

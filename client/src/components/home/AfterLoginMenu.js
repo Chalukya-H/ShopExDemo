@@ -16,7 +16,13 @@ function AfterLoginMenu(props){
       
     return(
       
-        <div className ='Menu_headerNav'>  
+        <div className ='Menu_headerNav'> 
+            <input type ='checkbox' id ='check' /> 
+            <label htmlFor ='check'>
+                <i className = 'fas fa-bars' id = 'btn'></i>
+                <i className = 'fas fa-times' id = 'cancel'></i>
+            </label>
+            <div className ='header__MenuItems'>
             {
                 <div className ='Menuheader__link '  >                                      
                 {                                                
@@ -52,8 +58,9 @@ function AfterLoginMenu(props){
             </div> 
             }
              <Link to ='/cart' className ='Menuheader__link'> 
-                <div  className ='header__option'>  
-                    <ShoppingCartIcon className ='header__cart' />                      
+                <div  className ='header__option'>                     
+                    <ShoppingCartIcon className ='header__cart'/> 
+                             
                 </div>                                             
             </Link>
             
@@ -61,7 +68,9 @@ function AfterLoginMenu(props){
                 <div  className ='header__option'>  
                     <ExitToAppIcon className ='header__signOut' onClick ={handleLogout} />                      
                 </div>                                             
-            </Link>  
+            </Link> 
+            </div>
+            
                      
                      
         </div>

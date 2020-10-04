@@ -48,7 +48,7 @@ class ShowSingleProduct extends React.Component{
                             return (
                                 <div className ='container-fluid' key = {product._id} > 
                                     <div className ='product__row'> 
-                                        <SingleProductCard 
+                                        <SingleProductCard className ='col-12'
                                             image = {product.mainImage} 
                                             user = {this.props.users} 
                                             products = {product} 

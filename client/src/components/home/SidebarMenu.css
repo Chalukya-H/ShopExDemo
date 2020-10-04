@@ -100,3 +100,36 @@
 }
 
 
+
+
+@media  (max-width: 600px){    
+    
+    .sidebarMenu__container{
+        margin-top: 70px;
+    } 
+    
+    .sidebarMenu li p {    
+        padding: 5px; 
+        font-size: 10px;
+        height: 30px;
+
+    } 
+    .sidebarMenu ul{
+        padding-left: 25px;
+        padding-right: 10px;
+    }
+
+    .sidebarMenu li ul , .sidebarMenu li ul li ul {        
+        left: 100px;        
+    }
+ 
+    .sidebarMenu li:hover >  ul , .sidebarMenu li ul li:hover > ul {       
+        left: 155px; 
+    }
+
+    .closeMenuIcon{
+        font-size: 25px;
+    }
+    
+
+}

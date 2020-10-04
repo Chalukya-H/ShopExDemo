@@ -14,9 +14,14 @@
     border: none;
 }
  
+.header__MenuItems{
+    display: flex;
+    align-items: center;
+}
 .Menuheader__link{
     color: white;
     text-decoration: none;
+    display: flex; 
 }
 
 .header__cart  , .header__signOut {
@@ -29,4 +34,63 @@
     margin-right: 20px;
 }
 
+label #btn , label #cancel {
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+
+@media  (max-width: 600px){    
  
+    label #btn   {
+        display: block;
+        font-size: 20px;
+        padding: 10px;
+        margin: 0;
+        margin-right: 10px;  
+        padding-top: 20px;
+    }
+
+  
+    label #cancel {
+   
+        font-size: 20px;
+        padding: 10px;
+        margin: 0;
+        margin-right: 10px;
+        padding-top: 20px; 
+    }
+    .header__MenuItems{
+       position: fixed;
+       width: 60%;
+       height: 100vh;
+       background: #34495e;
+       top: 40px;
+       left: -100%;
+       display: block;
+       margin-top: 28px;
+       line-height: 30px;  
+       padding-top: 40px;
+       padding-left: 10%;  
+       transition: all 0.5s;     
+    }
+ 
+    #check:checked ~ .header__MenuItems{
+        left: 0;
+    }
+    #check:checked ~ label #btn{
+        display: none;
+    }
+    #check:checked ~ label #cancel{
+        display: block;
+    }
+
+
+}

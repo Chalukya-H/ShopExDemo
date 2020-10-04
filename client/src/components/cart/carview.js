@@ -94,7 +94,7 @@ class Cart extends React.Component {
                 <Helmet>
                     <title> ShopEx - Cart </title>
                 </Helmet>
-                <h4 style ={{ visibility : this.props.cartData.length ? 'visible' : 'hidden'}}>
+                <h4 style ={{ visibility : this.props.cartData.length ? 'visible' : 'hidden'}} className ='cart_tag'>
                     My Cart ({ this.props.cartData.length}) </h4> 
                 {
                    this.props.cartData.length ? 

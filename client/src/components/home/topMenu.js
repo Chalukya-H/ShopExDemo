@@ -49,7 +49,7 @@ class TopMenu extends React.Component{
                     <span className = 'menuLines' onClick ={this.openMenu}> &#9776;</span>
                 </div>
                           
-                <Link to ='/'>
+                <Link to ='/' className = 'header__logoLink'>
                     <img className = 'header__logo' src = {logo} alt =''/> 
                 </Link>
 
