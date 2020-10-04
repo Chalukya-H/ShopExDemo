@@ -3,18 +3,33 @@
     display: flex;
     flex-direction: column;
     padding: 40px;
-    margin: 10px;
-    overflow-x:auto; 
+    margin: 10px; 
 }
 
-@media (max-width:600px){ 
+.category__titleHolder{
+    display: flex;
+}
 
-    .category__title >h3{
-        font-size: 20px ;
+.category__title{
+    width: max-content;
+    padding: 10px;
+}
+
+@media (max-width:900px){ 
+    .category__container{      
+        overflow-x:auto; 
+    }
+ 
+    .category__title{
+        width: max-content;
+        padding: 4px;
+    }
+    .category__title > h3{
+        font-size: 25px ;
     }
 
     .category__addNew{
-        margin-left: 40px;
+        margin-left: 10px;
         width: 300px !important;
     }
 
@@ -22,6 +37,5 @@
         display: block;  
         width: 100%;       
     }
-
     
 }

@@ -19,11 +19,11 @@ class ProductsSummary extends React.Component {
                 <Helmet>
                     <title> ShopEx - Product-Summary </title>
                 </Helmet>
-                <div className="row justify-content-start">
-                    <div className="col-3">
+                <div className="productList__Header">
+                    <div className="productList__title">
                         <h3> Products Summary </h3>
                     </div>
-                    <div className="col-4">
+                    <div className="productList__addNew">
                         <Link to ='/products/add' className ='btn btn-info'> Add products</Link>
                     </div>
                 </div>

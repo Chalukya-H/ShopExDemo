@@ -36,15 +36,15 @@ class CategoryAdd extends React.Component {
                 </Helmet>
                 <h4> Add New Category  </h4>
                 <div className ='row mt-2'>                                     
-                    <div className ='col-md-6 mb-1'> Category :           
+                    <div className ='col-md-9 mb-1'> Category :           
                         <input type="text"   className="form-control" placeholder ='like.. Electronics ,Books , Home Appliances'
-                            name ='mainCategory'  value = {this.state.mainCategory} onChange ={this.handleChange} />  
+                            name ='mainCategory'  value = {this.state.mainCategory} onChange ={this.handleChange} autoComplete ='off' />  
                     </div>                            
                 </div> 
                 <div className ='row mt-3'>                                     
-                    <div className ='col-md-6'>  Sub Category :                  
+                    <div className ='col-md-9'>  Sub Category :                  
                         <input type="text"  className="form-control" placeholder ='like.. Mobiles ,Laptop'
-                        name ='subCategory'  value = {this.state.subCategory} onChange ={this.handleChange}  />  
+                        name ='subCategory'  value = {this.state.subCategory} onChange ={this.handleChange} autoComplete ='off' />  
                     </div>                          
                 </div> 
                     

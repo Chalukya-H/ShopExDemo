@@ -4,4 +4,30 @@
     flex-direction: column;
     padding: 40px;
     margin: 10px;
+} 
+
+@media (max-width:1000px){ 
+    .productList__container{      
+        overflow-x:auto; 
+        width: 100%;
+    }
+ 
+    .productList__Header{
+        width: max-content;
+        padding: 4px;
+    }
+    .productList__Header > h3{
+        font-size: 25px ;
+    }
+
+    .productList__addNew{
+        margin-left: 10px;
+        width: 300px !important;
+    }
+
+    .productList__container > div{        
+        display: block;  
+        width: 100%;       
+    }
+    
 }

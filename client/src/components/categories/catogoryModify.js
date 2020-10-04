@@ -45,7 +45,7 @@ class CategoryModify extends React.Component {
                  <h4> Update Existing Category </h4>
                  <label htmlFor='mainId' >Category:</label> 
                 <div className = 'row'> 
-                    <div className ='col-md-6 mb-1'> 
+                    <div className ='col-md-9 mb-1'> 
                         <select className="form-control" name = 'mainId'  id ='mainId' onChange ={this.handleChange}>        
                             <option>--Select Category--</option>                               
                             {
@@ -60,9 +60,9 @@ class CategoryModify extends React.Component {
                     
                 </div>
                 <div className ='row mt-2'>                                     
-                    <div className ='col-md-6'>  Sub Category :                   
+                    <div className ='col-md-9'>  Sub Category :                   
                         <input type="text"  className="form-control" placeholder ='like.. Mobiles ,Laptop'
-                        name ='subCategory'  value = {this.state.subCategory} onChange ={this.handleChange}  />  
+                        name ='subCategory'  value = {this.state.subCategory} onChange ={this.handleChange} autoComplete ='off' />  
                     </div>                          
                 </div> 
                     

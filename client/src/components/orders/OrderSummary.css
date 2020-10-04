@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     padding: 40px;
-    margin: 10px;
-    overflow-x:auto;
+    margin: 10px; 
 }
 
 
@@ -12,16 +11,12 @@
     width: 10px !important;
 }
 
-@media (max-width:700px){
+@media (max-width:900px){
     .orderSummary_container >table {
         font-size: 15px;    
     }
-
-   th {
-       width: 30px !important;
-       height: 40px !important;
-    }
-
-     
+    .orderSummary_container{     
+        overflow-x:auto;
+    } 
 }
 
