@@ -46,11 +46,9 @@ class Login extends React.Component {
         const container = document.getElementById('container');
         if (e.target.id === 'signUp'){           
             container.classList.add("right-panel-active");
-        } else{
-             
+        } else{             
             container.classList.remove("right-panel-active");
-        }
-        
+        }        
     }
 
     render() {
@@ -65,10 +63,15 @@ class Login extends React.Component {
                         <h1>Sign in</h1>                         
                         <span>or use your account</span>
                         <input type="email" required={true} name ='email'  placeholder="Email" className ='login__email'
-                            value ={ this.state.email} onChange ={this.handleChange} />
+                            value ={ this.state.email} onChange ={this.handleChange}  />
                         <input type="password" placeholder="Password" className ='login__password' id='password' required={true} name ='password' 
-                        value ={ this.state.password} onChange ={this.handleChange} />                         
+                        value ={ this.state.password} onChange ={this.handleChange} autoComplete = 'off' />                         
                         <button className ='login__signIn' id='signin' name ='signin' >Sign In</button>
+                        <div className ='register__form'>
+                            <h4>New User, Create Account !</h4>
+                            <button   id="signUp"  className ='login__ghostsignUp' onClick ={this.handleSwap}>Sign Up</button>
+                        </div>
+                       
                     </form>
                 </div>
                 <div className="overlay-container">                    

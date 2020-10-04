@@ -18,10 +18,10 @@ class CategoriesSummary extends React.Component {
                     <title>ShopEx - Categories List</title>
                 </Helmet>
                 <div className="row justify-content-Start ml-2">
-                    <div className="col-3 mt-3">
+                    <div className="col-3 mt-3 category__title ">
                         <h3> Categories Summary </h3>
                     </div>
-                    <div className="col-4">
+                    <div className="col-4 category__addNew">
                         <Link to ='/categories/update' className ='btn btn-info'> Add More Category</Link>
                     </div>
                 </div>

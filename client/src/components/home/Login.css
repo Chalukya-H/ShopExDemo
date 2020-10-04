@@ -241,3 +241,93 @@ button.ghost {
 .header__logo{
 	border-radius: 14%;
 }
+ 
+.register__form{
+	display: none;
+}
+
+@media (max-width:800px){	
+	.login__container {	
+		width: 90%; 
+		margin-top: 40px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.sign-in-container  {
+		left: 0;
+		width: 100%;
+		z-index: 2;
+	}
+	.overlay{
+		display: none;
+	}
+
+	.form_Signin , .form_Signup{
+		padding: 10px; 
+	}	
+
+	.form_Signin > h1{
+		font-size: 25px;
+		text-transform: uppercase;
+	}	
+
+	.register__form{
+		display: block;
+	}
+
+	.register__form  >h4 {
+		font-size: 17px;
+		margin-top: 30px;		 
+	}
+
+	.register__form > .login__ghostsignUp , .register__form > .login__ghostsignIn{
+		display: flex;
+		font-size: 12px;
+		font-weight: bold;
+		padding: 8px 45px; 
+		margin-top: 20px;			 
+		margin-left: auto;
+		margin-right: auto;
+		background: cyan;
+		color: black;
+	}
+
+	.sign-up-container { 
+		width: 100%; 
+		z-index: 1;
+	}
+
+	.overlay-container{
+		visibility: hidden;
+		display: none;
+	}
+	
+	.login__container.right-panel-active .sign-up-container {
+		transform: translateX(0%);	 
+		height:700px !important;
+	}
+
+	
+	.login__container.right-panel-active {	  
+		height:640px !important;
+	}
+	.login__container.right-panel-active .sign-in-container {
+		display: none;
+		visibility: hidden;
+	}
+   
+	.sign-up-container, .form_Signup {		 
+		height:650px;
+	}
+
+	.form_Signup > h1{
+		font-size: 25px;
+	}
+
+
+	.register__fnname , .register__email , 
+	.register__password ,.register__Cpassword ,.register__lnname {	 
+		width: 95%;		 
+	}
+
+}

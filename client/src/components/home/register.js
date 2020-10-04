@@ -48,30 +48,46 @@ class Register extends React.Component {
 
     }
 
+    
+    handleSwap = (e)=>{
+        const container = document.getElementById('container');
+        if (e.target.id === 'signUp'){           
+            container.classList.add("right-panel-active");
+        } else{             
+            container.classList.remove("right-panel-active");
+        }        
+    }
+
     render() {
         return(
             <div className="form-container sign-up-container">               
-                <form onSubmit ={this.handleSubmit} className ='form_Signup'>
+                <form onSubmit ={this.handleSubmit} className ='form_Signup' autoComplete ='off' >
                     <h1>Create Account</h1>     <span></span>
                     <input type="text" placeholder="First Name"  className ='register__fnname' id='firstName' required={true} 
-                    name ='firstName' value ={this.state.firstName} onChange ={this.handleChange}/>
+                    name ='firstName' value ={this.state.firstName} onChange ={this.handleChange}  autoComplete = 'off' />
 
                     <input type="text" placeholder="Last Name"  className ='register__lnname' id='lastName' required={true} 
-                    name ='lastName' value ={this.state.lastName} onChange ={this.handleChange} />
+                    name ='lastName' value ={this.state.lastName} onChange ={this.handleChange} autoComplete = 'off' />
 
                     <input type="email" placeholder="Email"  className ='register__email' id='email' required={true} name ='email'
-                        value ={this.state.email} onChange ={this.handleChange} />
+                        value ={this.state.email} onChange ={this.handleChange} autoComplete = 'off' />
 
                     <input type="password" placeholder="Password" className ='register__password' id='register_password' required={true} name ='password'
-                        value ={this.state.password} onChange ={this.handleChange}  />
+                        value ={this.state.password} onChange ={this.handleChange}  autoComplete = 'off' />
 
                     <input type="password" placeholder="Confirm Password"  className ='register__Cpassword' id='confirmPwd' required={true} name ='confirmPwd'
-                        value ={this.state.confirmPwd} onChange ={this.handleChange} />
+                        value ={this.state.confirmPwd} onChange ={this.handleChange} autoComplete = 'off' />
                         <span style ={{color:'red'}}>
                             {this.state.pwdMsg}
                         </span>
                     <button className ='login__signUp' >Sign Up</button>
-                </form>
+
+                    <div className ='register__form'>
+                        <h4>Existing User !</h4>
+                        <button   id="signIn" className ='login__ghostsignIn'  onClick ={this.handleSwap}>Sign In</button>
+                    </div>
+                </form>                
+                
             </div>
          )
     }

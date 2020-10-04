@@ -22,7 +22,7 @@ class OrderSummary extends React.Component {
                     <thead className ='bg-success'>
                         <tr>
                             <th scope="col">Sl.no</th>
-                            <th scope="col">Order ID</th>
+                            <th scope="col" >Order ID</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
