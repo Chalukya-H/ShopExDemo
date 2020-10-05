@@ -7,8 +7,17 @@
    justify-content: center;
 }
    
+.product__loading{
+   height: 60vh;     
+}
+
+.msg_NoProductFound{    
+   margin-top: auto;
+   margin-bottom: auto;  
+}
 
 @media (max-width:600px){
+   
    .msg_NoProductFound{
       font-size: 20px;
       margin-top: auto;
