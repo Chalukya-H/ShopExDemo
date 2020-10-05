@@ -189,12 +189,12 @@ class OrderCreate extends React.Component {
                         <div className ='order__adressContainer'>
                             <h3> Add delivery details: </h3>
                             <div className='row mt-4'>
-                                <div className ='col-md-5 '>
+                                <div className ='col-md-8 '>
                                     <form   encType="multipart/form-data" onSubmit ={this.handleSubmit} >                              
                                         <div className = 'form-group'>
                                             <label htmlFor='address' >Delivery Address:</label>
                                             <textarea  id='address' required={true} name ='address'
-                                            className ='form-control h-40' rows='5'  
+                                            className ='form-control h-40 orderAdd_addAddress' rows='5'  
                                             placeholder ='Enter the address' value ={this.state.address}
                                             onChange ={this.handleChange}   />
                                         </div>
@@ -206,7 +206,7 @@ class OrderCreate extends React.Component {
                                                     <span className="input-group-text" id="basic-addon1">+91</span>
                                                 </div>
                                                 
-                                                <input type="text" className="form-control" placeholder="Mobile Number" id= 'contactNum' 
+                                                <input type="text" className="form-control orderAdd_addContact" placeholder="Mobile Number" id= 'contactNum' 
                                                 required = {true}  name= 'contactNum' value = {this.state.contactNum} onChange ={this.handleChange} />
                                             </div>
                                         </div>

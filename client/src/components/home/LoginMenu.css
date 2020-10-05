@@ -6,18 +6,34 @@
 }
 
 .profile__button{
-    background-color: lightgreen;
+    background-color: lightblue;
     border-radius: 5px;
     width: 100px;
     height: 35px;
     outline: none;
     border: none;
 }
+.dropdown-menu{
+    background: black !important;
+    color: white !important;
+    outline: none;
+}
  
+.dropdown-item{
+    color: white !important;
+    font-size: 16px;
+}
+
+.dropdown-item:hover{
+    background: red !important;
+    color: black !important;
+}
 .header__MenuItems{
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
+
 .Menuheader__link{
     color: white;
     text-decoration: none;
@@ -68,7 +84,7 @@ label #btn , label #cancel {
 
     .header__MenuItems{
        position: fixed;
-       width: 60%;
+       width: 80%;
        height: 100vh;
        background: #34495e;
        top: 40px;
@@ -77,8 +93,9 @@ label #btn , label #cancel {
        margin-top: 28px;
        line-height: 30px;  
        padding-top: 40px;
-       padding-left: 10%;  
-       transition: all 0.5s;     
+       padding-left: 20%;  
+       transition: all 0.5s;  
+          
     }
  
     #check:checked ~ .header__MenuItems{
@@ -89,6 +106,14 @@ label #btn , label #cancel {
     }
     #check:checked ~ label #cancel{
         display: block;
+    }
+
+    .Menuheader__link{
+        margin-bottom: 50px;
+    }
+        
+    .dropdown-item{        
+        font-size: 14px;
     }
 
 
@@ -123,10 +148,10 @@ label #btn , label #cancel {
        top: 40px;
        left: -100%;
        display: block;
-       margin-top: 80px;
+       margin-top: 78px ;
        line-height: 30px;  
        padding-top: 40px;
-       padding-left: 10%;  
+       padding-left: 20%;  
        transition: all 0.5s;     
     }
  
@@ -141,4 +166,18 @@ label #btn , label #cancel {
     }
 
 
+}
+
+
+
+
+@media (max-width:1000px) and (min-width:800px){    
+    .header__MenuItems{  
+        margin-left: 10px;
+    }
+    .header__option{
+        padding: 0;
+        padding-right: 5px; 
+        margin: 0;
+    }
 }
