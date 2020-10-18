@@ -3,21 +3,18 @@ const orderController ={}
 
 orderController.create = (req,res) =>{
     const body = req.body
-      
+       
     Order.insertMany(body)   
     
-    .then(order =>{
-        // console.log(order,'Response')
+    .then(order =>{ 
         res.json(order )
     })
-    .catch(err =>{
-        // console.log(err,'error')
+    .catch(err =>{ 
         res.json(err)
     })
 }
 
-orderController.list =(req,res) =>{
-    // console.log(req.user)
+orderController.list =(req,res) =>{     
     if(req.user.role === 'Admin'){
         Order.find()
         .then( order =>{

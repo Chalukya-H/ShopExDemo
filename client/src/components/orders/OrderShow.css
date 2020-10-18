@@ -11,7 +11,7 @@
     padding: 30px;
     background-color: whitesmoke;   
     padding-bottom: 50px; 
-    min-height: 390px;
+    min-height: 56vh;
 }
 
 .order_summary__containerbox{
@@ -50,7 +50,7 @@
 }
 
 .order_summary__containerbox.active .order_summary__content{
-    height: 170px;
+    height: 185px;
     padding: 10px;
 }
 

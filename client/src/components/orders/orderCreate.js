@@ -12,7 +12,7 @@ class OrderCreate extends React.Component {
         super()
         this.state={    
             address: '',
-            contactNum:'',
+            email:'',
             readyToOrder : false,
             price:0,
             tax:0
@@ -44,7 +44,7 @@ class OrderCreate extends React.Component {
         if(this.props.users.length) {
             this.setState({
                 address : this.props.users[0].address ,
-                contactNum : this.props.users[0].mobile
+                email : this.props.users[0].email
             })
 
              
@@ -82,7 +82,7 @@ class OrderCreate extends React.Component {
                 image: cart.image,
                 customerID: this.props.users[0]._id,
                 address: this.state.address,
-                contactNum: this.state.contactNum
+                email: this.state.email
             }
         })
         
@@ -116,7 +116,7 @@ class OrderCreate extends React.Component {
                 </div>
                 <div className ='product__deliveryCellNum'  
                     hidden = { this.state.readyToOrder && this.props.cartData.length ? false : true} >   
-                     <h6 className = 'product__address'>Mobile Num :</h6> <p>  {this.state.contactNum} </p>    
+                     <h6 className = 'product__address'>Email :</h6> <p>  {this.state.email} </p>    
                 </div>
                 
                 {
@@ -200,14 +200,11 @@ class OrderCreate extends React.Component {
                                         </div>
                                         
                                         <div className = 'form-group'> 
-                                        <label htmlFor='contactNum' >Mobile Number:  </label>                   
-                                            <div className="input-group mb-3">                                        
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text" id="basic-addon1">+91</span>
-                                                </div>
-                                                
-                                                <input type="text" className="form-control orderAdd_addContact" placeholder="Mobile Number" id= 'contactNum' 
-                                                required = {true}  name= 'contactNum' value = {this.state.contactNum} onChange ={this.handleChange} />
+                                        <label htmlFor='contactNum' >Email:  </label>                   
+                                            <div className="input-group mb-3">  
+                                                <input type="email" className="form-control orderAdd_addContact" 
+                                                placeholder="Email address" id= 'contactNum' 
+                                                required = {true}  name= 'contactNum' value = {this.state.email} onChange ={this.handleChange} />
                                             </div>
                                         </div>
                                         <input type ='submit' className ='btn btn-primary' value ='ADD DETAILS' />

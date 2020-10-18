@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator =  require('validator')
 const Schema = mongoose.Schema
 
 const orderSchema = new Schema ({
@@ -27,11 +28,25 @@ const orderSchema = new Schema ({
         type:String,
         required:true
     },
-    contactNum : {
-        type :Number,
+    // contactNum : {
+    //     type :Number,
+    //     required:true,
+    //     minlength :10,
+    //     maxlength:13
+    // },
+    email :{
+        type : String,
         required:true,
-        minlength :10,
-        maxlength:13
+        unique:true,
+        validate  :{
+            validator : function(value) {
+                return validator.isEmail(value)
+            },
+            message : function() {
+                return 'Invalid Email format'
+            }
+
+        }
     },
     status :{
         type : String,
